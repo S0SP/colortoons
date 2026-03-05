@@ -1,0 +1,99 @@
+# Backend Migration & Segmentation Refactor Plan
+
+## Goal
+Shift the image processing pipeline from the frontend (Android Native Module) to the backend (Python/OpenCV). The goal is to perform true flood-fill region extraction with vector contour generation (`findContours` + `approxPolyDP`) on the backend, converting the React Native frontend into a pure high-performance rendering engine using Skia and Reanimated.
+
+## 🔴 Deletions & Code Removal
+The current client-side processing architecture is being completely scrapped in favor of server-side processing.
+
+### 1. [src/screens/GameScreen.tsx](file:///c:/Users/sumit/colorArt/src/screens/GameScreen.tsx)
+**Regions to Delete:**
+*   **Lines 8-36:** `edgeDetectionShader` (Edge detection moves to backend).
+*   **Lines 53-71:** [createBlobPath](file:///c:/Users/sumit/colorArt/src/screens/GameScreen.tsx#53-72) helper.
+*   **Lines 88-125:** `rasterData` `useMemo` block (Grid-based mapping removed completely).
+*   **Lines 131-146:** [handleRasterTap](file:///c:/Users/sumit/colorArt/src/screens/GameScreen.tsx#131-147) function.
+*   **Lines 261-318, 341-367:** `loadedImage`, `RnImage`, `SkiaImage` shader rendering and number hints overlay (Frontend will no longer render bitmap overlays or raster modes, only vector paths).
+
+### 2. [src/screens/CreationScreen.tsx](file:///c:/Users/sumit/colorArt/src/screens/CreationScreen.tsx)
+**Regions to Delete/Modify:**
+*   **Lines 123-154:** Remove the call to `ImageProcessorService.convertToOutline`. Replace with a multipart form data request to the new versioned Python backend via [api.ts](file:///c:/Users/sumit/colorArt/src/services/api.ts).
+*   **Remove** `outlineUri` passing; the backend will supply structured regions and bounds.
+
+### 3. Native Modules (Android) - **Entire Files to Delete:**
+*   [src/services/ImageProcessor.ts](file:///c:/Users/sumit/colorArt/src/services/ImageProcessor.ts) (100% deleted)
+*   [android/app/src/main/java/com/colorart/ImageProcessorModule.java](file:///c:/Users/sumit/colorArt/android/app/src/main/java/com/colorart/ImageProcessorModule.java) (100% deleted)
+*   [android/app/src/main/java/com/colorart/ImageProcessorPackage.java](file:///c:/Users/sumit/colorArt/android/app/src/main/java/com/colorart/ImageProcessorPackage.java) (100% deleted)
+*   [android/app/src/main/java/com/colorart/MainApplication.kt](file:///c:/Users/sumit/colorArt/android/app/src/main/java/com/colorart/MainApplication.kt) (**Modify**: remove [ImageProcessorPackage()](file:///c:/Users/sumit/colorArt/android/app/src/main/java/com/colorart/ImageProcessorPackage.java#12-26))
+
+---
+
+## 🟢 Backend Implementation (Python)
+*Note: This plan defines the API contract. The actual backend Python code logic will be written in the backend repository or serverless functions directory.*
+
+1.  **Image Upload Endpoint (`/api/v1/process`)**: Accept multipart/form-data images. Implement strict safety guards:
+    *   **Max Upload Size Limit**: 5MB max, 6000px dimension cap (resize before processing).
+    *   **Timeout Protection**: Abort processing if it exceeds 2 seconds for a 1024px image.
+    *   **Optional Future Upgrade**: MD5 Image caching to skip processing identical images.
+2.  **Edge Detection**: Target image `->` Grayscale `->` BilateralFilter `->` AdaptiveThreshold `->` Canny Edge Detection `->` Morphological Close (to seal gaps) `->` Dilate `->` **Strict Binary Threshold (0/255)** to eliminate anti-aliased artifacts.
+    *   **Complexity Guard**: If edge pixel density > 35%, reject image OR increase smoothing strength to prevent chaos.
+3.  **Flood Fill & Region Extraction**: Invert edges (`bitwise_not`), perform `connectedComponents`. **Explicitly ignore the background component (label 0).**
+4.  **Region Merging & Safety Cap**:
+    *   Find regions smaller than `0.05%` of image area.
+    *   Build adjacency map via dilated mask overlap and merge tiny regions into their largest neighbor to prevent holes.
+    *   If total regions exceed 1000, dynamically increase the merge threshold or iteratively merge smallest regions to enforce a hard cap of 1000.
+5.  **Vector Path Generation**: Mask each region, run `findContours` using `cv2.RETR_CCOMP` to establish parent-child hole hierarchy. Simplify via `approxPolyDP` and output SVG `<path>` strings. Calculate centroids using image moments (`M["m10"]/M["m00"]`). Extract the outer outline contour as a separate SVG path for clean rendering.
+    *   **Deterministic Region ID Stability**: Sort discovered contours by boundingBox `y` (ASC), then `x` (ASC) before assigning sequential IDs (1..N).
+6.  **Response Format**:
+    ```json
+    {
+      "meta": {
+        "originalWidth": 4032,
+        "originalHeight": 3024,
+        "resizedWidth": 1024,
+        "resizedHeight": 768,
+        "regionCount": 312,
+        "processingTimeMs": 284
+      },
+      "width": 1024,
+      "height": 1024,
+      "outlinePath": "M...",
+      "regions": [
+        { 
+          "id": 1, 
+          "parentId": null,
+          "children": [5, 6],
+          "colorIndex": 0, 
+          "path": "M...", 
+          "boundingBox": {"x": 0, "y": 0, "w": 0, "h": 0},
+          "centroid": {"x": 0, "y": 0}
+        }
+      ],
+      "palette": ["#FF0000", "..."]
+    }
+    ```
+
+---
+
+## 🟢 Frontend Implementation (React Native)
+
+### 1. [src/services/api.ts](file:///c:/Users/sumit/colorArt/src/services/api.ts)
+*   Add [processImage(fileUri: string)](file:///c:/Users/sumit/colorArt/art/ImageProcessorModule.java#38-86) function to send the image via `FormData` using `axios` to `/api/v1/process`.
+
+### 2. `src/store/useGameStore.ts` (Zustand)
+*   Create a global Zustand store to handle `selectedColor` and `filledRegions{}` dictionary (mapping region ID to boolean).
+*   **Transforms in Store**: Optionally store [scale](file:///c:/Users/sumit/colorArt/art/ImageProcessor.js#76-92), `translateX`, and `translateY` to preserve zoom state across view re-renders.
+
+### 3. [src/screens/GameScreen.tsx](file:///c:/Users/sumit/colorArt/src/screens/GameScreen.tsx) (Refactor)
+*   **Hit Testing:** Pre-calculate Skia paths in a `useMemo`. Convert touch coordinates to canvas space (`canvasX = (touchX - translateX) / scale`). Iterate and use bounding box fast-rejection before precise `path.contains(canvasX, canvasY)`.
+*   **Rendering Architecture**:
+    *   Sort regions by hierarchy depth before rendering. **Render parent regions first**, then children to preserve correct hole behavior.
+    *   Ensure exact strict render order: **Filled regions -> Unfilled regions -> Outline stroke -> Numbers**. 
+*   **Pinch Zoom:** Wrap the paths inside a `<Group>` tag and apply a single Reanimated `transform` matrix generated by `react-native-gesture-handler`. Clamp the zoom scale (`scale ∈ [1, 4]`).
+*   **Number Hints & Performance Safeguard:**
+    *   Conditionally render SVG Text at the region's `centroid` only when zoom scale > 1.5.
+    *   **Safeguard**: If `regions.length > 900`, forcefully disable number hints to prevent FPS drops.
+
+## Verification
+*   User can upload an image and receive a vector-based coloring layout stably and consistently.
+*   Pinch and pan affects the entire canvas group smoothly without lag.
+*   Nested regions (holes) display and tap correctly due to hierarchy-aware rendering.

@@ -10,6 +10,7 @@ import { ProcessingScreen } from '../screens/ProcessingScreen';
 import { GameScreen } from '../screens/GameScreen';
 import { GalleryScreen } from '../screens/GalleryScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
+import { VictoryScreen } from '../screens/VictoryScreen';
 import { COLORS } from '../theme';
 
 const Stack = createNativeStackNavigator();
@@ -22,10 +23,8 @@ const MainTabs = () => {
             tabBar={props => <CustomTabBar {...props} />}
             screenOptions={{
                 headerShown: false,
-                // Hide default tab bar style since we are using custom tabBar component
-                // The CustomTabBar handles positioning.
                 tabBarStyle: {
-                    position: 'absolute', // Ensure transparent standard bg doesn't interfere, though 'tabBar' prop replaces it entirely.
+                    position: 'absolute',
                 }
             }}
         >
@@ -74,6 +73,7 @@ export const RootNavigator = () => {
                 <Stack.Screen name="Creation" component={CreationScreen} />
                 <Stack.Screen name="Processing" component={ProcessingScreen} />
                 <Stack.Screen name="Game" component={GameScreen} />
+                <Stack.Screen name="VictoryScreen" component={VictoryScreen} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     );

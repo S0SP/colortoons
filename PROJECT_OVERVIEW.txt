@@ -1,0 +1,91 @@
+PROJECT OVERVIEW - ColorArt
+
+==============================
+1. IMPLEMENTATION DESCRIPTION
+==============================
+ColorArt is an AI-powered interactive coloring application built with React Native. It transforms user-uploaded photos or patterns into "Color by Number" digital canvases. 
+
+Key Flow:
+- Image Acquisition: Users pick images via `react-native-image-picker`.
+- Edge Detection: A custom native module treats the image to extract high-contrast outlines.
+- Gameplay: An interactive Skia-based canvas allows users to tap regions and fill them with colors, maintaining the "Line Art" integrity.
+- Persistence: Works are saved locally using MMKV and can be viewed in a Gallery.
+
+==============================
+2. LIBRARIES & TECHNOLOGIES
+==============================
+- CORE FRAMEWORK: React Native (v0.83.1)
+- GRAPHICS: @shopify/react-native-skia (High-performance 2D drawing)
+- STATE MANAGEMENT: Zustand (Lightweight, hook-based state)
+- DIRECT STORAGE: react-native-mmkv (Ultra-fast key-value storage)
+- ANIMATIONS: react-native-reanimated (60fps UI interactions)
+- NATIVE BRIDGE: react-native-nitro-modules (Next-gen JS-to-Native communication)
+- BACKEND: Vercel (Python serverless functions for image processing)
+- NETWORKING: Axios
+
+==============================
+3. ALGORITHMS & TECHNIQUES
+==============================
+- EDGE DETECTION: 
+    * Sobel Operator (implemented in ImageProcessorModule.java/m). 
+    * Techniques: Grayscale conversion, Convolution matrices (3x3 kernels), Gradient Magnitude calculation.
+- REGION SEGMETATION:
+    * Grid-based region mapping to identify "Color by Number" zones.
+- RENDERING:
+    * Layered rendering using Skia Shaders and Paths to ensure colors don't bleed over black outlines.
+
+==============================
+4. CURRENT PROGRESS (~80%)
+==============================
+[X] Core Native Bridge for Image Processing
+[X] Skia Canvas Integration
+[X] Navigation Structure (Home, Game, Gallery, Profile)
+[X] Local State & Storage Persistence
+[X] Basic Edge Detection Logic
+[ ] Advanced Image Segmentation (AI-based)
+[ ] High-fidelity UI Polish
+[ ] Cloud Sync/Export Features
+
+==============================
+5. FILE TRAVERSAL (Logic & Screens)
+==============================
+root/
+├── api/
+│   ├── index.py (Vercel Entry)
+│   ├── processor.py (Python Image Logic)
+│   └── requirements.txt
+├── art/
+│   ├── ImageProcessorModule.java (Android Native Logic)
+│   ├── ImageProcessorModule.m (iOS Native Logic)
+│   ├── ImageProcessorModule.h
+│   ├── ColoringGameOptimized.js (Skia Logic)
+│   └── ImageProcessor.js (JS Bridge)
+├── src/
+│   ├── App.tsx (Main Entry)
+│   ├── components/
+│   │   ├── CustomTabBar.tsx
+│   │   ├── DifficultySlider.tsx
+│   │   └── StyleCard.tsx
+│   ├── navigation/
+│   │   └── AppNavigator.tsx
+│   ├── screens/
+│   │   ├── HomeScreen.tsx (Landing)
+│   │   ├── CreationScreen.tsx (Upload/Process)
+│   │   ├── GameScreen.tsx (The Coloring Canvas)
+│   │   ├── GalleryScreen.tsx (Saved Works)
+│   │   ├── ProcessingScreen.tsx (Analysis UI)
+│   │   └── ProfileScreen.tsx (User Settings)
+│   ├── services/
+│   │   ├── ImageProcessor.ts (Client-side Wrapper)
+│   │   └── api.ts (Backend Communication)
+│   ├── store/
+│   │   ├── userStore.ts (Global State)
+│   │   └── mmkvStorage.ts (Persistence Layer)
+│   └── theme/
+│       └── Colors.ts
+├── package.json
+├── App.tsx (Root Component)
+├── index.js
+└── tsconfig.json
+
+(Note: All system, build, and node_modules folders are excluded as per .gitignore instructions)

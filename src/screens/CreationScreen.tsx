@@ -18,7 +18,7 @@ const STYLES = [
 
 import Voice, { SpeechResultsEvent, SpeechErrorEvent } from '@react-native-voice/voice';
 import { launchImageLibrary } from 'react-native-image-picker';
-import ImageProcessorService from '../services/ImageProcessor';
+import { processImage } from '../services/api';
 
 export const CreationScreen = () => {
     const navigation = useNavigation();
@@ -111,57 +111,35 @@ export const CreationScreen = () => {
 
             if (result.didCancel) return;
             if (result.errorMessage) {
-                Alert.alert("Error", result.errorMessage);
+                Alert.alert('Error', result.errorMessage);
                 return;
             }
 
-            if (result.assets && result.assets.length > 0 && result.assets[0].uri) {
-                const imageUri = result.assets[0].uri;
+            const asset = result.assets?.[0];
+            if (asset?.uri) {
                 setLoading(true);
-
-                // Process the image
                 try {
-                    console.log("Processing image:", imageUri);
-                    // Use 800x800 as target size
-                    const processedData = await ImageProcessorService.convertToOutline(imageUri, 800, 800);
+                    // Send image to backend for processing
+                    const backendResult = await processImage(
+                        asset.uri,
+                        asset.fileName,
+                        asset.type,
+                    );
 
-                    console.log("Processing complete, regions:", processedData.regions.length);
-                    // Map result to GameScreen format
-                    // Note: region.colorId is 1-based from Java module, we make it 0-based for palette index
-                    // palette usually has 10 colors.
-
-                    // Create a palette based on colorIds or static
-                    const palette = [
-                        '#1A237E', '#283593', '#00ACC1', '#E0E0E0', '#FFB74D',
-                        '#E57373', '#9575CD', '#64B5F6', '#81C784', '#FFD54F'
-                    ];
-
-                    const gameData = {
-                        width: processedData.width,
-                        height: processedData.height,
-                        palette: palette,
-                        regions: processedData.regions.map(r => ({
-                            colorIndex: (r.colorId - 1) % palette.length,
-                            pathData: r.pathData,
-                            labelPoint: r.center
-                        }))
-                    };
-
+                    // Backend returns the exact structure GameScreen expects
                     navigation.navigate('Game' as any, {
-                        data: gameData,
-                        image: processedData.outlineUri // Use the processed outline as background if needed, or original
+                        data: backendResult,
                     });
-
                 } catch (err: any) {
-                    console.error("Image Processing Failed:", err);
-                    Alert.alert("Error", "Failed to process image: " + err.message);
+                    console.error('Image Processing Failed:', err);
+                    Alert.alert('Error', 'Failed to process image: ' + (err.message || 'Unknown error'));
                 } finally {
                     setLoading(false);
                 }
             }
         } catch (err) {
             console.error(err);
-            Alert.alert("Error", "Failed to pick image");
+            Alert.alert('Error', 'Failed to pick image');
         }
     };
 
