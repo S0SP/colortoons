@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     View,
     Text,
@@ -13,13 +13,95 @@ import Animated, {
     useAnimatedStyle,
     withSpring,
     withDelay,
-    withSequence,
     withTiming,
+    useAnimatedReaction,
+    runOnJS,
     Easing,
 } from 'react-native-reanimated';
 import ConfettiCannon from 'react-native-confetti-cannon';
 
-const { width } = Dimensions.get('window');
+const { width, height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+// ─── 🆕 Stage 8 Feature 4: Animated Score Counter ─────────────────────────────
+const AnimatedScoreCounter = ({ targetScore }: { targetScore: number }) => {
+    const [displayScore, setDisplayScore] = useState(0);
+    const animatedValue = useSharedValue(0);
+
+    useEffect(() => {
+        animatedValue.value = withDelay(
+            800,
+            withTiming(targetScore, {
+                duration: 800,
+                easing: Easing.out(Easing.cubic),
+            }),
+        );
+    }, [targetScore]);
+
+    useAnimatedReaction(
+        () => Math.round(animatedValue.value),
+        (current) => {
+            runOnJS(setDisplayScore)(current);
+        },
+    );
+
+    return (
+        <Text style={styles.scoreText}>
+            {displayScore.toLocaleString()}
+        </Text>
+    );
+};
+
+// ─── 🆕 Stage 8 Feature 5: Coin Burst Particles ──────────────────────────────
+const COIN_COUNT = 12;
+
+const CoinParticle = ({ index, delay }: { index: number; delay: number }) => {
+    const translateY = useSharedValue(0);
+    const translateX = useSharedValue(0);
+    const opacity = useSharedValue(0);
+    const particleScale = useSharedValue(0);
+
+    useEffect(() => {
+        const angle = (index / COIN_COUNT) * Math.PI * 2;
+        const distance = 60 + Math.random() * 40;
+
+        opacity.value = withDelay(delay, withTiming(1, { duration: 150 }));
+        particleScale.value = withDelay(delay, withSpring(1, { damping: 6 }));
+        translateX.value = withDelay(
+            delay,
+            withTiming(Math.cos(angle) * distance, { duration: 600, easing: Easing.out(Easing.cubic) }),
+        );
+        translateY.value = withDelay(
+            delay,
+            withTiming(Math.sin(angle) * distance, { duration: 600, easing: Easing.out(Easing.cubic) }),
+        );
+
+        // Fade out after burst
+        setTimeout(() => {
+            opacity.value = withTiming(0, { duration: 400 });
+        }, delay + 600);
+    }, []);
+
+    const coinStyle = useAnimatedStyle(() => ({
+        transform: [
+            { translateX: translateX.value },
+            { translateY: translateY.value },
+            { scale: particleScale.value },
+        ],
+        opacity: opacity.value,
+    }));
+
+    return (
+        <Animated.Text style={[styles.coinParticle, coinStyle]}>🪙</Animated.Text>
+    );
+};
+
+const CoinBurst = () => (
+    <View style={styles.coinBurstContainer}>
+        {Array.from({ length: COIN_COUNT }).map((_, i) => (
+            <CoinParticle key={i} index={i} delay={1000 + i * 30} />
+        ))}
+    </View>
+);
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export const VictoryScreen = ({ route, navigation }: any) => {
@@ -40,7 +122,7 @@ export const VictoryScreen = ({ route, navigation }: any) => {
         star3Scale.value = withDelay(600, withSpring(1, { damping: 6, stiffness: 120 }));
         scoreScale.value = withDelay(800, withSpring(1, { damping: 8, stiffness: 100 }));
         coinScale.value = withDelay(1000, withSpring(1, { damping: 8, stiffness: 100 }));
-        buttonsOpacity.value = withDelay(1200, withTiming(1, { duration: 400 }));
+        buttonsOpacity.value = withDelay(1600, withTiming(1, { duration: 400 }));
     }, []);
 
     const star1Style = useAnimatedStyle(() => ({
@@ -62,12 +144,10 @@ export const VictoryScreen = ({ route, navigation }: any) => {
         opacity: buttonsOpacity.value,
     }));
 
-    const formattedScore = score.toLocaleString();
-
     const handleShare = async () => {
         try {
             await Share.share({
-                message: `I just scored ${formattedScore} points on ColorArt! 🎨⭐`,
+                message: `I just scored ${score.toLocaleString()} points on ColorArt! 🎨⭐`,
             });
         } catch (_) { }
     };
@@ -99,14 +179,17 @@ export const VictoryScreen = ({ route, navigation }: any) => {
                     </View>
                 </View>
 
-                {/* Score */}
+                {/* 🆕 Stage 8 Feature 4: Animated counting score */}
                 <Animated.View style={scoreStyle}>
-                    <Text style={styles.scoreText}>{formattedScore}</Text>
+                    <AnimatedScoreCounter targetScore={score} />
                 </Animated.View>
 
-                {/* Coin Reward */}
+                {/* 🆕 Stage 8 Feature 5: Coin Burst + Reward */}
                 <Animated.View style={[styles.coinRow, coinStyle]}>
-                    <Text style={styles.chestEmoji}>💰</Text>
+                    <View style={styles.coinBurstWrapper}>
+                        <Text style={styles.chestEmoji}>💰</Text>
+                        <CoinBurst />
+                    </View>
                     <Text style={styles.coinText}>+{coins} Coins!</Text>
                 </Animated.View>
 
@@ -221,9 +304,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 8,
     },
+    coinBurstWrapper: {
+        position: 'relative',
+        marginRight: 8,
+    },
+    coinBurstContainer: {
+        ...StyleSheet.absoluteFillObject,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    coinParticle: {
+        position: 'absolute',
+        fontSize: 16,
+    },
     chestEmoji: {
         fontSize: 36,
-        marginRight: 8,
     },
     coinText: {
         fontSize: 24,

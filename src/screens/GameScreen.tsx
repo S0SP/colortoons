@@ -1,7 +1,7 @@
-console.log("GAME SCREEN V3 — COMPLETION SYSTEM");
-import React, { useMemo } from 'react';
+console.log("GAME SCREEN V4 — STAGE 8 PREMIUM UX");
+import React, { useMemo, useCallback } from 'react';
 import { View, StyleSheet, Dimensions, TouchableOpacity, Text, ScrollView, Alert } from 'react-native';
-import { Canvas, Path, Skia, Group } from '@shopify/react-native-skia';
+import { Canvas, Path, Skia, Group, Circle, Paint, BlendMode } from '@shopify/react-native-skia';
 import { GestureDetector, Gesture } from 'react-native-gesture-handler';
 import Animated, {
     useSharedValue,
@@ -9,6 +9,10 @@ import Animated, {
     useAnimatedStyle,
     clamp,
     useDerivedValue,
+    withTiming,
+    withRepeat,
+    withSequence,
+    Easing,
 } from 'react-native-reanimated';
 import { useGameStore } from '../store/useGameStore';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -181,14 +185,14 @@ const GameContent = ({
     const progress = Math.round((filledCount / regions.length) * 100);
     const isComplete = filledCount === regions.length;
 
-    const onGameCompleted = React.useCallback(() => {
+    const onGameCompleted = useCallback(() => {
         const endTime = Date.now();
         const timeTaken = Math.floor((endTime - startTime) / 1000);
 
-        const baseScore = 1000;
+        const baseScoreVal = 1000;
         const regionBonus = regions.length * 5;
         const speedBonus = Math.max(0, 120 - timeTaken) * 10;
-        const totalScore = baseScore + regionBonus + speedBonus;
+        const totalScore = baseScoreVal + regionBonus + speedBonus;
         const coins = Math.floor(totalScore / 50);
 
         setScore(totalScore);
@@ -203,7 +207,6 @@ const GameContent = ({
 
     React.useEffect(() => {
         if (isComplete && regions.length > 0) {
-            // Small delay so user can see the final fill
             const timer = setTimeout(() => onGameCompleted(), 600);
             return () => clearTimeout(timer);
         }
@@ -231,6 +234,36 @@ const GameContent = ({
         );
     };
 
+    // ── 🆕 Stage 8 Feature 2: Dynamic Palette Filtering ──────────────────────
+    // Only show colors that still have unfilled regions
+    const activeColorIndices = useMemo(() => {
+        const activeSet = new Set<number>();
+        for (const r of regions) {
+            if (!filledRegions[r.id]) {
+                activeSet.add(r.colorIndex);
+            }
+        }
+        return activeSet;
+    }, [regions, filledRegions]);
+
+    // ── 🆕 Stage 8 Feature 5: Region Highlight Pulse ─────────────────────────
+    // 900ms pulse loop for unfilled regions matching selectedColor
+    const pulseOpacity = useSharedValue(0.3);
+
+    React.useEffect(() => {
+        pulseOpacity.value = withRepeat(
+            withSequence(
+                withTiming(0.45, { duration: 450, easing: Easing.inOut(Easing.ease) }),
+                withTiming(0.15, { duration: 450, easing: Easing.inOut(Easing.ease) }),
+            ),
+            -1, // infinite
+            true,
+        );
+    }, [selectedColor]);
+
+    // Derived value for use inside Skia Canvas
+    const pulseOpacityDerived = useDerivedValue(() => pulseOpacity.value);
+
     // ── Zoom / pan shared values ───────────────────────────────────────────────
     const scale = useSharedValue(1);
     const translateX = useSharedValue(0);
@@ -255,20 +288,56 @@ const GameContent = ({
             savedTranslateY.value = translateY.value;
         });
 
+    // ── 🆕 Stage 8 Feature 1: Flood Fill Animation State ─────────────────────
+    // Track the last filled region for the expanding circle effect
+    const [fillAnimRegion, setFillAnimRegion] = React.useState<{
+        id: number;
+        cx: number;
+        cy: number;
+        maxR: number;
+        color: string;
+    } | null>(null);
+    const fillAnimRadius = useSharedValue(0);
+    const fillAnimRadiusDerived = useDerivedValue(() => fillAnimRadius.value);
+
     // ── Tap hit-test ──────────────────────────────────────────────────────────
     const handleTap = (touchX: number, touchY: number) => {
-        // Performance: disable tap after completion
         if (isComplete) return;
 
         const totalScale = baseScale * scale.value;
         const canvasX = (touchX - translateX.value - extraX) / totalScale + minX;
         const canvasY = (touchY - translateY.value - extraY) / totalScale + minY;
 
-        // Reverse iteration → children (deepest) win over parents
         for (let i = skiaRegions.length - 1; i >= 0; i--) {
             const r = skiaRegions[i];
             if (r.skPath?.contains(canvasX, canvasY)) {
-                if (r.colorIndex === selectedColor) fillRegion(r.id);
+                if (r.colorIndex === selectedColor && !filledRegions[r.id]) {
+                    // 🆕 Trigger flood fill animation
+                    const bb = r.boundingBox;
+                    const maxRadius = Math.sqrt(bb.w * bb.w + bb.h * bb.h);
+                    const color = palette[r.colorIndex % palette.length];
+
+                    setFillAnimRegion({
+                        id: r.id,
+                        cx: canvasX,
+                        cy: canvasY,
+                        maxR: maxRadius,
+                        color,
+                    });
+
+                    // Animate the radius from 0 to maxRadius
+                    fillAnimRadius.value = 0;
+                    fillAnimRadius.value = withTiming(maxRadius, {
+                        duration: 180,
+                        easing: Easing.out(Easing.cubic),
+                    });
+
+                    // Actually fill after animation completes
+                    setTimeout(() => {
+                        fillRegion(r.id);
+                        setFillAnimRegion(null);
+                    }, 180);
+                }
                 break;
             }
         }
@@ -325,6 +394,38 @@ const GameContent = ({
                                             style="fill"
                                         />
                                     ))}
+
+                                    {/* 🆕 Stage 8 Feature 5: Pulse highlight for matching unfilled regions */}
+                                    {skiaRegions.map((r) => {
+                                        if (filledRegions[r.id]) return null;
+                                        if (r.colorIndex !== selectedColor) return null;
+                                        return (
+                                            <Path
+                                                key={`pulse-${r.id}`}
+                                                path={r.skPath!}
+                                                color={palette[r.colorIndex % palette.length]}
+                                                style="fill"
+                                                opacity={pulseOpacityDerived}
+                                            />
+                                        );
+                                    })}
+
+                                    {/* 🆕 Stage 8 Feature 1: Flood fill expanding circle */}
+                                    {fillAnimRegion && (() => {
+                                        const animRegion = skiaRegions.find(r => r.id === fillAnimRegion.id);
+                                        if (!animRegion?.skPath) return null;
+                                        return (
+                                            <Group clip={animRegion.skPath}>
+                                                <Circle
+                                                    cx={fillAnimRegion.cx}
+                                                    cy={fillAnimRegion.cy}
+                                                    r={fillAnimRadiusDerived}
+                                                    color={fillAnimRegion.color}
+                                                />
+                                            </Group>
+                                        );
+                                    })()}
+
                                     {/* Region borders */}
                                     {skiaRegions.map((r) => (
                                         <Path
@@ -387,29 +488,39 @@ const GameContent = ({
                     </GestureDetector>
                 </View>
 
-                {/* Colour palette */}
+                {/* 🆕 Stage 8 Feature 2: Dynamic Color Palette — hides fully completed colors */}
                 <View style={styles.paletteContainer}>
                     <ScrollView
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         contentContainerStyle={styles.palette}
                     >
-                        {palette.map((c, i) => (
-                            <TouchableOpacity
-                                key={i}
-                                style={[
-                                    styles.colorSwatch,
-                                    {
-                                        backgroundColor: c,
-                                        borderWidth: selectedColor === i ? 4 : 2,
-                                        borderColor: selectedColor === i ? '#FFF' : 'rgba(0,0,0,0.1)',
-                                    },
-                                ]}
-                                onPress={() => setSelectedColor(i)}
-                            >
-                                <Text style={styles.swatchNumber}>{i + 1}</Text>
-                            </TouchableOpacity>
-                        ))}
+                        {palette.map((c, i) => {
+                            const isFullyDone = !activeColorIndices.has(i);
+                            return (
+                                <TouchableOpacity
+                                    key={i}
+                                    style={[
+                                        styles.colorSwatch,
+                                        {
+                                            backgroundColor: c,
+                                            borderWidth: selectedColor === i ? 4 : 2,
+                                            borderColor: selectedColor === i ? '#FFF' : 'rgba(0,0,0,0.1)',
+                                            opacity: isFullyDone ? 0.3 : 1,
+                                        },
+                                    ]}
+                                    onPress={() => setSelectedColor(i)}
+                                    disabled={isFullyDone}
+                                >
+                                    <Text style={[
+                                        styles.swatchNumber,
+                                        isFullyDone && { textDecorationLine: 'line-through' as const },
+                                    ]}>
+                                        {isFullyDone ? '✓' : i + 1}
+                                    </Text>
+                                </TouchableOpacity>
+                            );
+                        })}
                     </ScrollView>
                 </View>
 
