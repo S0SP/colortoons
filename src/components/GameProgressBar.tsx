@@ -4,13 +4,18 @@ import Animated, {
     useSharedValue,
     withTiming,
     useAnimatedStyle,
+    Easing,
 } from 'react-native-reanimated';
 
 export default function GameProgressBar({ progress }: { progress: number }) {
     const width = useSharedValue(0);
 
     useEffect(() => {
-        width.value = withTiming(progress, { duration: 500 });
+        // Stage 11: 250ms cubicOut dopamine
+        width.value = withTiming(progress, {
+            duration: 250,
+            easing: Easing.out(Easing.cubic),
+        });
     }, [progress]);
 
     const fillStyle = useAnimatedStyle(() => ({

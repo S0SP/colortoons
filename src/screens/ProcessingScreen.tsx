@@ -1,52 +1,80 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { COLORS, FONTS, SPACING } from '../theme';
-import Animated, { useSharedValue, useAnimatedStyle, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import Animated, { useSharedValue, useAnimatedStyle, withRepeat, withTiming } from 'react-native-reanimated';
+import { processImage } from '../services/api';
+
+const STEPS = [
+    'Analyzing image...',
+    'Detecting edges...',
+    'Extracting regions...',
+    'Building palette...',
+    'Generating paths...',
+    'Finalizing artwork...',
+];
 
 export const ProcessingScreen = ({ route, navigation }: any) => {
-    // Determine input type: Prompt (Text to Image) or Gallery Image
-    const { prompt, style, difficulty, image, title, id } = route.params || {};
-
-    const isImageProcessing = !!image;
-    const [step, setStep] = React.useState(0);
-
+    const { image, title, id, imageUri } = route.params || {};
+    const [step, setStep] = useState(0);
+    const [error, setError] = useState<string | null>(null);
     const rotation = useSharedValue(0);
-
-    const STEPS = isImageProcessing
-        ? ['Analyzing image...', 'Detecting edges...', 'Generating numbers...', 'Finalizing artwork...']
-        : ['Summoning colors...', 'Mixing palette...', 'Adding magic stats...', 'Finalizing masterpiece...'];
+    const processingDone = useRef(false);
 
     useEffect(() => {
-        // Animation
-        rotation.value = withRepeat(
-            withTiming(360, { duration: 2000 }),
-            -1
-        );
+        rotation.value = withRepeat(withTiming(360, { duration: 2000 }), -1);
 
-        // Simulation Loop
+        // Step animation — progress through steps visually
         let currentStep = 0;
-        const interval = setInterval(() => {
-            currentStep++;
-            if (currentStep < STEPS.length) {
+        const stepInterval = setInterval(() => {
+            if (currentStep < STEPS.length - 1 && !processingDone.current) {
+                currentStep++;
                 setStep(currentStep);
-            } else {
-                clearInterval(interval);
-                // Navigation
-                if (isImageProcessing) {
-                    navigation.replace('Game', {
-                        image,
-                        title,
-                        id,
-                        mode: 'raster' // Tell GameScreen to use Raster Logic
-                    });
-                } else {
-                    // Logic for GEN AI result would go here
-                    // navigation.replace('Game', { ...data... })
-                }
             }
-        }, 1500); // 1.5s per step
+        }, 1200);
 
-        return () => clearInterval(interval);
+        // Actual backend call
+        const doProcess = async () => {
+            try {
+                // Resolve the image URI
+                let uri: string;
+                if (imageUri) {
+                    // Direct file URI from camera/picker
+                    uri = imageUri;
+                } else if (typeof image === 'number') {
+                    // require() asset — resolve it
+                    const resolved = Image.resolveAssetSource(image);
+                    uri = resolved.uri;
+                } else if (image?.uri) {
+                    uri = image.uri;
+                } else {
+                    throw new Error('No valid image source');
+                }
+
+                console.log('[Processing] Sending to backend:', uri);
+                const data = await processImage(uri, title || 'image.jpg');
+                processingDone.current = true;
+
+                // Show final step
+                setStep(STEPS.length - 1);
+
+                // Small delay for visual polish, then navigate
+                setTimeout(() => {
+                    navigation.replace('Game', { data });
+                }, 600);
+            } catch (err: any) {
+                console.error('[Processing] Error:', err);
+                processingDone.current = true;
+                clearInterval(stepInterval);
+                let msg = err?.message || 'Processing failed. Please try again.';
+                if (err?.code === 'ECONNABORTED' || msg.includes('timeout')) {
+                    msg = 'Server is taking longer than usual to wake up. Please try one more time!';
+                }
+                setError(msg);
+            }
+        };
+
+        doProcess();
+        return () => clearInterval(stepInterval);
     }, []);
 
     const animatedStyle = useAnimatedStyle(() => ({
@@ -56,27 +84,37 @@ export const ProcessingScreen = ({ route, navigation }: any) => {
     return (
         <View style={styles.container}>
             <Animated.View style={[styles.magicIcon, animatedStyle]}>
-                <Text style={{ fontSize: 60 }}>{isImageProcessing ? '🖼️' : '🪄'}</Text>
+                <Text style={{ fontSize: 60 }}>🖼️</Text>
             </Animated.View>
-            <Text style={styles.text}>{STEPS[step]}</Text>
-            {isImageProcessing ? (
-                <Text style={styles.subtext}>Processing "{title}"</Text>
-            ) : (
-                <Text style={styles.subtext}>"{prompt}"</Text>
-            )}
 
-            {/* Progress Dots */}
-            <View style={{ flexDirection: 'row', marginTop: 30, gap: 8 }}>
-                {STEPS.map((_, i) => (
-                    <View
-                        key={i}
-                        style={{
-                            width: 10, height: 10, borderRadius: 5,
-                            backgroundColor: i <= step ? COLORS.accent : '#333'
-                        }}
-                    />
-                ))}
-            </View>
+            {error ? (
+                <>
+                    <Text style={styles.errorText}>❌ {error}</Text>
+                    <Text
+                        style={styles.retryBtn}
+                        onPress={() => navigation.goBack()}
+                    >
+                        ← Go Back
+                    </Text>
+                </>
+            ) : (
+                <>
+                    <Text style={styles.text}>{STEPS[step]}</Text>
+                    <Text style={styles.subtext}>Processing "{title}"</Text>
+
+                    <View style={{ flexDirection: 'row', marginTop: 30, gap: 8 }}>
+                        {STEPS.map((_, i) => (
+                            <View
+                                key={i}
+                                style={{
+                                    width: 10, height: 10, borderRadius: 5,
+                                    backgroundColor: i <= step ? COLORS.accent : '#333',
+                                }}
+                            />
+                        ))}
+                    </View>
+                </>
+            )}
         </View>
     );
 };
@@ -94,9 +132,9 @@ const styles = StyleSheet.create({
     },
     text: {
         color: COLORS.white,
-        ...FONTS.bold,
+        fontWeight: 'bold' as const,
         fontSize: 24,
-        textAlign: 'center',
+        textAlign: 'center' as const,
     },
     subtext: {
         color: COLORS.subtext,
@@ -104,5 +142,18 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center',
         fontStyle: 'italic',
+    },
+    errorText: {
+        color: '#EF4444',
+        fontSize: 18,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    retryBtn: {
+        color: '#60A5FA',
+        fontSize: 18,
+        fontWeight: 'bold',
+        paddingVertical: 12,
+        paddingHorizontal: 24,
     },
 });

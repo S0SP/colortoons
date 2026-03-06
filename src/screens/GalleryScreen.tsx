@@ -14,7 +14,6 @@ const ASSETS = {
     castle: require('../assets/gallery/card_2_castle_1770252730046.png'),
     mandala: require('../assets/gallery/card_3_mandala_1770252750695.png'),
     car: require('../assets/gallery/card_4_car_1770252765697.png'),
-    badgeNew: require('../assets/gallery/badge_new_starburst_1770252805503.png'),
     badgeAI: require('../assets/gallery/badge_ai_glow_1770252781446.png'),
 };
 

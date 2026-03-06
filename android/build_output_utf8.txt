@@ -1,0 +1,475 @@
+﻿Configuration on demand is an incubating feature.
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :app
+useNewCruncher has been deprecated. It will be removed in a future version of the gradle plugin. New cruncher is now always enabled.
+
+> Configure project :react-native-mmkv
+[NitroModules] ? NitroMmkv is boosted by nitro!
+
+> Configure project :react-native-nitro-modules
+[NitroModules] ? Your app is boosted by nitro modules!
+
+> Configure project :shopify_react-native-skia
+react-native-skia: node_modules/ found at: C:\Users\sumit\colorArt\node_modules
+react-native-skia: RN Version: 83 / 0.83.1
+react-native-skia: isSourceBuild: false
+react-native-skia: PrebuiltDir: C:\Users\sumit\colorArt\node_modules\@shopify\react-native-skia\android\build/react-native-0*/jni
+react-native-skia: buildType: debug
+react-native-skia: buildDir: C:\Users\sumit\colorArt\node_modules\@shopify\react-native-skia\android\build
+react-native-skia: node_modules: C:\Users\sumit\colorArt\node_modules
+react-native-skia: Enable Prefab: true
+react-native-skia: aar state post 70, do nothing
+
+> Task :react-native-linear-gradient:preBuild UP-TO-DATE
+> Task :react-native-voice_voice:preBuild UP-TO-DATE
+> Task :react-native-fs:preBuild UP-TO-DATE
+> Task :react-native-fs:preDebugBuild UP-TO-DATE
+> Task :react-native-linear-gradient:preDebugBuild UP-TO-DATE
+> Task :react-native-fs:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-voice_voice:preDebugBuild UP-TO-DATE
+> Task :react-native-linear-gradient:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-linear-gradient:generateDebugResValues UP-TO-DATE
+> Task :react-native-fs:generateDebugResValues UP-TO-DATE
+> Task :react-native-voice_voice:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-linear-gradient:generateDebugResources UP-TO-DATE
+> Task :react-native-fs:generateDebugResources UP-TO-DATE
+> Task :react-native-voice_voice:generateDebugResValues UP-TO-DATE
+> Task :react-native-community_blur:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-vector-icons:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-view-shot:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-voice_voice:generateDebugResources UP-TO-DATE
+> Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-image-picker:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-gesture-handler:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-linear-gradient:packageDebugResources UP-TO-DATE
+> Task :react-native-screens:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-nitro-modules:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-fs:packageDebugResources UP-TO-DATE
+> Task :shopify_react-native-skia:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-linear-gradient:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-fs:extractDeepLinksDebug UP-TO-DATE
+> Task :app:generateAutolinkingNewArchitectureFiles UP-TO-DATE
+> Task :react-native-voice_voice:packageDebugResources UP-TO-DATE
+> Task :react-native-voice_voice:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-linear-gradient:processDebugManifest UP-TO-DATE
+> Task :react-native-fs:processDebugManifest UP-TO-DATE
+> Task :react-native-linear-gradient:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-fs:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-mmkv:generateCodegenSchemaFromJavaScript UP-TO-DATE
+> Task :react-native-voice_voice:processDebugManifest UP-TO-DATE
+> Task :react-native-fs:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-voice_voice:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-voice_voice:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-fs:generateDebugRFile UP-TO-DATE
+> Task :react-native-linear-gradient:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-fs:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-linear-gradient:generateDebugRFile UP-TO-DATE
+> Task :react-native-fs:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-linear-gradient:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-voice_voice:generateDebugRFile UP-TO-DATE
+> Task :react-native-linear-gradient:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateAutolinkingPackageList UP-TO-DATE
+> Task :react-native-voice_voice:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-voice_voice:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :react-native-screens:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-community_blur:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-view-shot:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-gesture-handler:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-community_blur:preBuild UP-TO-DATE
+> Task :react-native-community_blur:preDebugBuild UP-TO-DATE
+> Task :react-native-vector-icons:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-nitro-modules:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-image-picker:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-screens:preDebugBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preDebugBuild UP-TO-DATE
+> Task :react-native-vector-icons:preBuild UP-TO-DATE
+> Task :react-native-gesture-handler:preBuild UP-TO-DATE
+> Task :react-native-image-picker:preBuild UP-TO-DATE
+> Task :shopify_react-native-skia:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-community_blur:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-image-picker:preDebugBuild UP-TO-DATE
+> Task :react-native-screens:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-gesture-handler:preDebugBuild UP-TO-DATE
+> Task :react-native-image-picker:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-mmkv:generateCodegenArtifactsFromSchema UP-TO-DATE
+> Task :react-native-mmkv:preBuild UP-TO-DATE
+> Task :react-native-community_blur:generateDebugResValues UP-TO-DATE
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :react-native-gesture-handler:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-vector-icons:preDebugBuild UP-TO-DATE
+> Task :react-native-view-shot:preBuild UP-TO-DATE
+> Task :react-native-view-shot:preDebugBuild UP-TO-DATE
+> Task :react-native-safe-area-context:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-mmkv:preDebugBuild UP-TO-DATE
+> Task :react-native-community_blur:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResValues UP-TO-DATE
+> Task :react-native-vector-icons:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-mmkv:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-image-picker:generateDebugResValues UP-TO-DATE
+> Task :react-native-view-shot:writeDebugAarMetadata UP-TO-DATE
+> Task :app:generateReactNativeEntryPoint UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResValues UP-TO-DATE
+> Task :react-native-image-picker:generateDebugResources UP-TO-DATE
+> Task :react-native-mmkv:generateDebugResValues UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugResValues UP-TO-DATE
+> Task :react-native-screens:generateDebugResValues UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugResources UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugResources UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :react-native-mmkv:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:packageDebugResources UP-TO-DATE
+> Task :react-native-image-picker:packageDebugResources UP-TO-DATE
+> Task :react-native-vector-icons:packageDebugResources UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-image-picker:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-vector-icons:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-gesture-handler:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-mmkv:packageDebugResources UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-image-picker:processDebugManifest UP-TO-DATE
+> Task :react-native-safe-area-context:packageDebugResources UP-TO-DATE
+> Task :react-native-vector-icons:processDebugManifest UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :react-native-vector-icons:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-image-picker:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-gesture-handler:processDebugManifest UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugLibraryResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :react-native-safe-area-context:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-mmkv:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-view-shot:generateDebugResValues UP-TO-DATE
+> Task :react-native-screens:generateDebugResources UP-TO-DATE
+> Task :react-native-image-picker:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-voice_voice:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-community_blur:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-vector-icons:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-fs:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-linear-gradient:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-view-shot:generateDebugResources UP-TO-DATE
+> Task :react-native-fs:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-safe-area-context:processDebugManifest UP-TO-DATE
+> Task :react-native-community_blur:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-voice_voice:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugRFile UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugRFile UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugLibraryResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :react-native-linear-gradient:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-fs:mergeDebugShaders UP-TO-DATE
+> Task :react-native-image-picker:generateDebugRFile UP-TO-DATE
+> Task :react-native-community_blur:processDebugManifest UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-view-shot:packageDebugResources UP-TO-DATE
+> Task :react-native-screens:packageDebugResources UP-TO-DATE
+> Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-image-picker:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugBuildConfig UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-view-shot:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-safe-area-context:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-vector-icons:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-screens:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-community_blur:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-image-picker:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-fs:compileDebugShaders NO-SOURCE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :react-native-fs:generateDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugRFile UP-TO-DATE
+> Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-screens:processDebugManifest UP-TO-DATE
+> Task :react-native-community_blur:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-screens:compileDebugLibraryResources UP-TO-DATE
+> Task :app:copyReactNativeVectorIconFonts UP-TO-DATE
+> Task :react-native-gesture-handler:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :react-native-screens:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugShaders UP-TO-DATE
+> Task :react-native-safe-area-context:generateDebugBuildConfig UP-TO-DATE
+> Task :shopify_react-native-skia:prepareHeaders UP-TO-DATE
+> Task :shopify_react-native-skia:preBuild UP-TO-DATE
+> Task :react-native-gesture-handler:compileDebugShaders NO-SOURCE
+> Task :shopify_react-native-skia:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:generateDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :react-native-community_blur:generateDebugRFile UP-TO-DATE
+> Task :shopify_react-native-skia:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugAssets UP-TO-DATE
+> Task :shopify_react-native-skia:generateDebugResValues UP-TO-DATE
+> Task :react-native-community_blur:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-view-shot:processDebugManifest UP-TO-DATE
+> Task :react-native-mmkv:processDebugManifest UP-TO-DATE
+> Task :react-native-gesture-handler:mergeDebugJniLibFolders UP-TO-DATE
+> Task :react-native-vector-icons:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-community_blur:javaPreCompileDebug UP-TO-DATE
+> Task :shopify_react-native-skia:generateDebugResources UP-TO-DATE
+> Task :react-native-view-shot:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-screens:generateDebugRFile UP-TO-DATE
+> Task :react-native-gesture-handler:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-view-shot:parseDebugLocalResources UP-TO-DATE
+> Task :react-native-vector-icons:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-screens:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-view-shot:generateDebugRFile UP-TO-DATE
+> Task :react-native-view-shot:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-nitro-modules:prepareHeaders UP-TO-DATE
+> Task :react-native-nitro-modules:preBuild UP-TO-DATE
+> Task :react-native-nitro-modules:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:prepareDebugArtProfile UP-TO-DATE
+> Task :react-native-view-shot:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-mmkv:compileDebugLibraryResources UP-TO-DATE
+> Task :shopify_react-native-skia:packageDebugResources UP-TO-DATE
+> Task :react-native-nitro-modules:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-nitro-modules:generateDebugResValues UP-TO-DATE
+> Task :react-native-mmkv:parseDebugLocalResources UP-TO-DATE
+> Task :shopify_react-native-skia:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-community_blur:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-gesture-handler:prepareLintJarForPublish UP-TO-DATE
+> Task :react-native-nitro-modules:generateDebugResources UP-TO-DATE
+> Task :react-native-voice_voice:mergeDebugShaders
+> Task :react-native-fs:mergeDebugAssets
+> Task :shopify_react-native-skia:processDebugManifest UP-TO-DATE
+> Task :react-native-image-picker:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-nitro-modules:packageDebugResources UP-TO-DATE
+> Task :react-native-linear-gradient:mergeDebugShaders
+> Task :react-native-view-shot:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-community_blur:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-vector-icons:mergeDebugShaders
+> Task :react-native-view-shot:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-nitro-modules:extractDeepLinksDebug UP-TO-DATE
+> Task :react-native-vector-icons:compileDebugShaders NO-SOURCE
+> Task :react-native-voice_voice:compileDebugShaders NO-SOURCE
+> Task :shopify_react-native-skia:compileDebugLibraryResources UP-TO-DATE
+> Task :react-native-vector-icons:generateDebugAssets UP-TO-DATE
+> Task :react-native-voice_voice:generateDebugAssets UP-TO-DATE
+> Task :react-native-linear-gradient:compileDebugShaders NO-SOURCE
+> Task :react-native-linear-gradient:generateDebugAssets UP-TO-DATE
+> Task :shopify_react-native-skia:parseDebugLocalResources UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :react-native-nitro-modules:processDebugManifest UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :react-native-image-picker:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-nitro-modules:compileDebugLibraryResources UP-TO-DATE
+> Task :shopify_react-native-skia:generateDebugRFile UP-TO-DATE
+> Task :react-native-mmkv:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :shopify_react-native-skia:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-nitro-modules:parseDebugLocalResources UP-TO-DATE
+> Task :shopify_react-native-skia:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-nitro-modules:generateDebugRFile UP-TO-DATE
+> Task :react-native-nitro-modules:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-community_blur:mergeDebugShaders
+> Task :react-native-voice_voice:mergeDebugAssets
+> Task :react-native-nitro-modules:generateDebugBuildConfig UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugKotlin UP-TO-DATE
+> Task :react-native-community_blur:compileDebugShaders NO-SOURCE
+> Task :react-native-linear-gradient:mergeDebugAssets
+> Task :react-native-community_blur:generateDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:javaPreCompileDebug UP-TO-DATE
+> Task :react-native-view-shot:mergeDebugShaders
+> Task :react-native-view-shot:compileDebugShaders NO-SOURCE
+> Task :react-native-view-shot:generateDebugAssets UP-TO-DATE
+> Task :shopify_react-native-skia:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-fs:bundleLibRuntimeToJarDebug
+> Task :react-native-mmkv:generateDebugBuildConfig
+> Task :shopify_react-native-skia:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :react-native-community_blur:mergeDebugAssets
+> Task :react-native-safe-area-context:compileDebugJavaWithJavac UP-TO-DATE
+> Task :react-native-image-picker:mergeDebugShaders
+> Task :react-native-view-shot:mergeDebugAssets
+> Task :react-native-mmkv:generateDebugRFile
+> Task :react-native-linear-gradient:bundleLibRuntimeToJarDebug
+> Task :react-native-vector-icons:mergeDebugAssets
+> Task :react-native-voice_voice:bundleLibRuntimeToJarDebug
+> Task :react-native-mmkv:javaPreCompileDebug
+> Task :react-native-image-picker:compileDebugShaders NO-SOURCE
+> Task :shopify_react-native-skia:mergeDebugShaders
+> Task :react-native-image-picker:generateDebugAssets UP-TO-DATE
+> Task :react-native-fs:processDebugJavaRes NO-SOURCE
+> Task :react-native-safe-area-context:mergeDebugShaders UP-TO-DATE
+> Task :shopify_react-native-skia:compileDebugShaders NO-SOURCE
+> Task :shopify_react-native-skia:generateDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:compileDebugShaders NO-SOURCE
+> Task :react-native-safe-area-context:generateDebugAssets UP-TO-DATE
+> Task :react-native-mmkv:mergeDebugShaders
+> Task :shopify_react-native-skia:mergeDebugAssets
+> Task :react-native-image-picker:mergeDebugAssets
+> Task :react-native-community_blur:bundleLibRuntimeToJarDebug
+> Task :react-native-vector-icons:bundleLibRuntimeToJarDebug
+> Task :react-native-view-shot:bundleLibRuntimeToJarDebug
+> Task :react-native-mmkv:compileDebugShaders NO-SOURCE
+> Task :react-native-mmkv:generateDebugAssets UP-TO-DATE
+> Task :react-native-safe-area-context:bundleLibCompileToJarDebug
+> Task :react-native-safe-area-context:mergeDebugAssets
+> Task :react-native-community_blur:processDebugJavaRes NO-SOURCE
+> Task :react-native-linear-gradient:processDebugJavaRes NO-SOURCE
+> Task :react-native-image-picker:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses FAILED
+> Task :react-native-vector-icons:processDebugJavaRes NO-SOURCE
+> Task :react-native-mmkv:mergeDebugAssets
+> Task :react-native-view-shot:processDebugJavaRes NO-SOURCE
+> Task :react-native-nitro-modules:compileDebugKotlin UP-TO-DATE
+> Task :react-native-image-picker:bundleLibRuntimeToJarDebug
+> Task :shopify_react-native-skia:bundleLibRuntimeToJarDebug
+> Task :react-native-screens:compileDebugKotlin UP-TO-DATE
+> Task :react-native-safe-area-context:bundleLibRuntimeToJarDebug
+> Task :react-native-safe-area-context:processDebugJavaRes
+> Task :react-native-worklets:assertMinimalReactNativeVersionTask
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask
+
+[Incubating] Problems report is available at: file:///C:/Users/sumit/colorArt/android/build/reports/problems/problems-report.html
+.\gradlew.bat : 
+At line:1 char:1
++ .\gradlew.bat assembleDebug > build_output.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:checkDebugDuplicateClasses'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.CheckDuplicatesRunnable
+   > Duplicate class android.support.v4.app.INotificationSideChannel found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.app.INotificationSideChannel$Stub found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.app.INotificationSideChannel$Stub$Proxy found in modules 
+core-1.16.0.aar -> core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.graphics.drawable.IconCompatParcelizer found in modules 
+core-1.16.0.aar -> core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.IResultReceiver found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.IResultReceiver$Stub found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.IResultReceiver$Stub$Proxy found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.ResultReceiver found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.ResultReceiver$1 found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.ResultReceiver$MyResultReceiver found in modules core-1.16.0.aar 
+-> core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class android.support.v4.os.ResultReceiver$MyRunnable found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class androidx.core.graphics.drawable.IconCompatParcelizer found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class androidx.core.internal.package-info found in modules core-1.16.0.aar -> 
+core-1.16.0-runtime (androidx.core:core:1.16.0) and support-compat-28.0.0.aar -> 
+support-compat-28.0.0-runtime (com.android.support:support-compat:28.0.0)
+     Duplicate class androidx.versionedparcelable.CustomVersionedParcelable found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.NonParcelField found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.ParcelField found in modules versionedparcelable-1.1.1.aar 
+-> versionedparcelable-1.1.1-runtime (androidx.versionedparcelable:versionedparcelable:1.1.1) and 
+versionedparcelable-28.0.0.aar -> versionedparcelable-28.0.0-runtime 
+(com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.ParcelImpl found in modules versionedparcelable-1.1.1.aar 
+-> versionedparcelable-1.1.1-runtime (androidx.versionedparcelable:versionedparcelable:1.1.1) and 
+versionedparcelable-28.0.0.aar -> versionedparcelable-28.0.0-runtime 
+(com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.ParcelImpl$1 found in modules versionedparcelable-1.1.1.aar 
+-> versionedparcelable-1.1.1-runtime (androidx.versionedparcelable:versionedparcelable:1.1.1) and 
+versionedparcelable-28.0.0.aar -> versionedparcelable-28.0.0-runtime 
+(com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.ParcelUtils found in modules versionedparcelable-1.1.1.aar 
+-> versionedparcelable-1.1.1-runtime (androidx.versionedparcelable:versionedparcelable:1.1.1) and 
+versionedparcelable-28.0.0.aar -> versionedparcelable-28.0.0-runtime 
+(com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcel found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcel$1 found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcel$ParcelException found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcelParcel found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcelStream found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcelStream$FieldBuffer found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcelable found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     Duplicate class androidx.versionedparcelable.VersionedParcelize found in modules 
+versionedparcelable-1.1.1.aar -> versionedparcelable-1.1.1-runtime 
+(androidx.versionedparcelable:versionedparcelable:1.1.1) and versionedparcelable-28.0.0.aar -> 
+versionedparcelable-28.0.0-runtime (com.android.support:versionedparcelable:28.0.0)
+     
+     Learn how to fix dependency resolution errors at https://d.android.com/r/tools/classpath-sync-errors
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to generate a Build Scan (Powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.0.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 6s
+250 actionable tasks: 35 executed, 215 up-to-date

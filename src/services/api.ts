@@ -2,11 +2,11 @@ import axios from 'axios';
 
 // For Android Emulator, localhost is 10.0.2.2
 // For actual device, use your machine's IP, or the Vercel URL
-const API_URL = 'http://192.168.1.9:5000/api';
-//const API_URL = 'http://10.0.2.2:5000/api';
+const API_URL = 'https://colorartbackend.onrender.com/api';
+// For real device on same Wi-Fi, use: 'http://192.168.1.9:5000/api'
 export const api = axios.create({
     baseURL: API_URL,
-    timeout: 60000, // 60s timeout for GenAI
+    timeout: 120000, // 120s timeout for Cold Starts + Processing
 });
 
 export const generatePainting = async (prompt: string, style: string, difficulty: number) => {
@@ -34,7 +34,7 @@ export const processImage = async (fileUri: string, fileName?: string, fileType?
 
         const response = await api.post('/v1/process', formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
-            timeout: 30000, // 30s for image processing
+            timeout: 120000, // 120s for Render Cold Start + OpenCV
         });
         return response.data;
     } catch (error) {
