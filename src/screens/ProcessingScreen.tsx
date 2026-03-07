@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { COLORS, FONTS, SPACING } from '../theme';
 import Animated, { useSharedValue, useAnimatedStyle, withRepeat, withTiming } from 'react-native-reanimated';
-import { processImage } from '../services/api';
+import { processImage , ProcessImageOptions } from '../services/api';
 
 const STEPS = [
     'Analyzing image...',
@@ -33,45 +33,42 @@ export const ProcessingScreen = ({ route, navigation }: any) => {
         }, 1200);
 
         // Actual backend call
-        const doProcess = async () => {
-            try {
-                // Resolve the image URI
-                let uri: string;
-                if (imageUri) {
-                    // Direct file URI from camera/picker
-                    uri = imageUri;
-                } else if (typeof image === 'number') {
-                    // require() asset — resolve it
-                    const resolved = Image.resolveAssetSource(image);
-                    uri = resolved.uri;
-                } else if (image?.uri) {
-                    uri = image.uri;
-                } else {
-                    throw new Error('No valid image source');
-                }
+const doProcess = async () => {
+    try {
+        let uri: string;
+        if (imageUri) {
+            uri = imageUri;
+        } else if (typeof image === 'number') {
+            const resolved = Image.resolveAssetSource(image);
+            uri = resolved.uri;
+        } else if (image?.uri) {
+            uri = image.uri;
+        } else {
+            throw new Error('No valid image source');
+        }
 
-                console.log('[Processing] Sending to backend:', uri);
-                const data = await processImage(uri, title || 'image.jpg');
-                processingDone.current = true;
+        console.log('[Processing] Sending to Railway backend:', uri);
 
-                // Show final step
-                setStep(STEPS.length - 1);
+        // NEW: pass options from route.params
+        const options = route.params?.options ?? {};
+        const data = await processImage(uri, title || 'image.jpg', 'image/jpeg', options);
 
-                // Small delay for visual polish, then navigate
-                setTimeout(() => {
-                    navigation.replace('Game', { data });
-                }, 600);
-            } catch (err: any) {
-                console.error('[Processing] Error:', err);
-                processingDone.current = true;
-                clearInterval(stepInterval);
-                let msg = err?.message || 'Processing failed. Please try again.';
-                if (err?.code === 'ECONNABORTED' || msg.includes('timeout')) {
-                    msg = 'Server is taking longer than usual to wake up. Please try one more time!';
-                }
-                setError(msg);
-            }
-        };
+        processingDone.current = true;
+        setStep(STEPS.length - 1);
+
+        setTimeout(() => {
+            navigation.replace('Game', { data });   // data shape now matches GameScreen
+        }, 600);
+    } catch (err: any) {
+        processingDone.current = true;
+        clearInterval(stepInterval);
+        let msg = err?.response?.data?.detail || err?.message || 'Processing failed.';
+        if (err?.code === 'ECONNABORTED') {
+            msg = 'Request timed out. Check your connection and try again.';
+        }
+        setError(msg);
+    }
+};
 
         doProcess();
         return () => clearInterval(stepInterval);

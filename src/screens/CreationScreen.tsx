@@ -18,17 +18,32 @@ const STYLES = [
 
 import Voice, { SpeechResultsEvent, SpeechErrorEvent } from '@react-native-voice/voice';
 import { launchImageLibrary } from 'react-native-image-picker';
-import { processImage } from '../services/api';
+import { processImage, ProcessImageOptions } from '../services/api';
 
 export const CreationScreen = () => {
     const navigation = useNavigation();
     const [prompt, setPrompt] = useState('');
     const [selectedStyle, setSelectedStyle] = useState('cartoon');
-    const [difficulty, setDifficulty] = useState(10);
+    const [difficulty, setDifficulty] = useState(50);
     const [loading, setLoading] = useState(false);
     const [isListening, setIsListening] = useState(false);
 
     const { coins, useEnergy } = useUserStore();
+
+    const getDifficultyOptions = (diff: number): ProcessImageOptions => {
+        // difficulty: 0 = easiest (Kids), 100 = hardest (Photo Mode)
+        if (diff < 25) {
+            return { numColors: 12, targetRegions: 150, minRegionArea: 80 };  // Kids
+        } else if (diff < 50) {
+            return { numColors: 24, targetRegions: 400, minRegionArea: 40 };  // Easy
+        } else if (diff < 75) {
+            return { numColors: 32, targetRegions: 800, minRegionArea: 25 };  // Normal (default)
+        } else if (diff < 90) {
+            return { numColors: 64, targetRegions: 1500, minRegionArea: 10 };  // Art Mode
+        } else {
+            return { numColors: 128, targetRegions: 3000, minRegionArea: 1 };  // Photo Mode
+        }
+    };
 
     React.useEffect(() => {
         const onSpeechStart = () => setIsListening(true);
@@ -49,7 +64,13 @@ export const CreationScreen = () => {
         Voice.onSpeechResults = onSpeechResults;
 
         return () => {
-            Voice.destroy().then(Voice.removeAllListeners);
+            Voice.onSpeechStart = undefined as any;
+            Voice.onSpeechEnd = undefined as any;
+            Voice.onSpeechError = undefined as any;
+            Voice.onSpeechResults = undefined as any;
+            Voice.destroy()
+                .then(() => Voice.removeAllListeners())
+                .catch(err => console.warn('Voice teardown error:', err));
         };
     }, []);
 
@@ -94,7 +115,7 @@ export const CreationScreen = () => {
 
             console.log("Using Mock Data:", mockData.regions.length, "regions");
             // Navigate to Game Screen
-            navigation.navigate('Game' as any, { data: mockData });
+            (navigation as any).navigate('Game', { data: mockData });
         } catch (e) {
             Alert.alert("Error", "Failed to generate painting");
         } finally {
@@ -106,36 +127,22 @@ export const CreationScreen = () => {
         try {
             const result = await launchImageLibrary({
                 mediaType: 'photo',
-                selectionLimit: 1,
+                quality: 0.9,
             });
 
-            if (result.didCancel) return;
+            if (result.didCancel || !result.assets?.[0]) return;
             if (result.errorMessage) {
                 Alert.alert('Error', result.errorMessage);
                 return;
             }
 
-            const asset = result.assets?.[0];
+            const asset = result.assets[0];
             if (asset?.uri) {
-                setLoading(true);
-                try {
-                    // Send image to backend for processing
-                    const backendResult = await processImage(
-                        asset.uri,
-                        asset.fileName,
-                        asset.type,
-                    );
-
-                    // Backend returns the exact structure GameScreen expects
-                    navigation.navigate('Game' as any, {
-                        data: backendResult,
-                    });
-                } catch (err: any) {
-                    console.error('Image Processing Failed:', err);
-                    Alert.alert('Error', 'Failed to process image: ' + (err.message || 'Unknown error'));
-                } finally {
-                    setLoading(false);
-                }
+                (navigation as any).navigate('Processing', {
+                    imageUri: asset.uri,
+                    title: asset.fileName ?? 'painting.jpg',
+                    options: getDifficultyOptions(difficulty),
+                });
             }
         } catch (err) {
             console.error(err);
@@ -150,7 +157,7 @@ export const CreationScreen = () => {
                 {/* Fox Peeking - Rendered First but Z-indexed in styles */}
                 <Image
                     source={require('../assets/fox_peeking.png')}
-                    style={styles.foxPeeking}
+                    style={styles.foxPeeking as any}
                     resizeMode="contain"
                 />
 
@@ -219,8 +226,8 @@ export const CreationScreen = () => {
                 <DifficultySlider
                     value={difficulty}
                     onValueChange={setDifficulty}
-                    min={5}
-                    max={30}
+                    min={0}
+                    max={100}
                 />
             </View>
 
@@ -414,7 +421,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: COLORS.white,
-        ...FONTS.bold,
+        ...(FONTS.bold as any),
         fontSize: 20,
     },
 });
