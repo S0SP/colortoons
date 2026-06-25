@@ -79,6 +79,9 @@ export const ProcessingScreen = ({ route, navigation }: any) => {
 
     // Backend processing
     useEffect(() => {
+        if (processingDone.current) return;
+        processingDone.current = true;
+
         const doProcess = async () => {
             let coinsSpent = false;
             try {
@@ -110,15 +113,14 @@ export const ProcessingScreen = ({ route, navigation }: any) => {
                     lastPlayedAt: Date.now(),
                 });
 
-                processingDone.current = true;
                 setStep(STEPS.length - 1);
                 AudioManager.playGameMusic();
                 setTimeout(() => navigation.replace('Game', { data, title: finalTitle, savedPaintingId }), 800);
             } catch (err: any) {
+                processingDone.current = false; // Allow retry if failed
                 if (coinsSpent && cost) {
                     addCoins(cost, 'Refund for failed generation');
                 }
-                processingDone.current = true;
                 setError(err?.response?.data?.detail || err?.message || 'Processing failed.');
             }
         };

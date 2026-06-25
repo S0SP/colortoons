@@ -104,16 +104,7 @@ export const GalleryScreen = ({ navigation }: any) => {
         setCards(current => current.map(card => card.id === id ? { ...card, liked: !card.liked } : card));
     };
 
-    const copyImageToLocalCache = async (sourceUri: string, itemId: string): Promise<string> => {
-        const tempPath = `${RNFS.CachesDirectoryPath}/gallery_${itemId}_${Date.now()}.jpg`;
-        if (sourceUri.startsWith('http://') || sourceUri.startsWith('https://')) {
-            const result = await RNFS.downloadFile({ fromUrl: sourceUri, toFile: tempPath }).promise;
-            if (result.statusCode !== 200) throw new Error(`Download failed with status ${result.statusCode}`);
-        } else {
-            await RNFS.copyFile(sourceUri.replace(/^file:\/\//, ''), tempPath);
-        }
-        return `file://${tempPath}`;
-    };
+
 
     const handleCardPress = async (item: GalleryItem) => {
         if (!item.image) {
@@ -129,9 +120,10 @@ export const GalleryScreen = ({ navigation }: any) => {
 
         setIsLoadingImage(true);
         try {
-            const localUri = await copyImageToLocalCache(resolved.uri, item.id);
+            // We pass the resolved.uri directly because api.ts handles platform-specific resolution
+            // (e.g. copying Android resources or downloading remote URLs automatically)
             navigation.navigate('Processing', {
-                imageUri: localUri,
+                imageUri: resolved.uri,
                 title: item.title,
                 id: item.id,
                 options: {
