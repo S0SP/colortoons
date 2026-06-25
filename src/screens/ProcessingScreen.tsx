@@ -10,6 +10,8 @@ import Animated, {
 import { Canvas, Path } from '@shopify/react-native-skia';
 import { processImage, generateImage, ProcessImageOptions } from '../services/api';
 import { AudioManager } from '../services/AudioManager';
+import { useUserStore } from '../store/useUserStore';
+import { usePaintingStore } from '../store/usePaintingStore';
 
 const { width } = Dimensions.get('window');
 
@@ -24,10 +26,14 @@ const STEPS = [
 ];
 
 export const ProcessingScreen = ({ route, navigation }: any) => {
-    const { imageUri, title, options, prompt, style } = route.params || {};
+    const { imageUri, title, options, prompt, style, cost } = route.params || {};
     const [step, setStep] = useState(0);
     const [error, setError] = useState<string | null>(null);
     const processingDone = useRef(false);
+
+    const spendCoins = useUserStore(s => s.spendCoins);
+    const addCoins = useUserStore(s => s.addCoins);
+    const savePainting = usePaintingStore(s => s.savePainting);
 
     // Animations
     const progressWidth = useSharedValue(0);
@@ -74,8 +80,16 @@ export const ProcessingScreen = ({ route, navigation }: any) => {
     // Backend processing
     useEffect(() => {
         const doProcess = async () => {
+            let coinsSpent = false;
             try {
                 if (!imageUri && !prompt) throw new Error('No input provided');
+
+                if (cost && cost > 0) {
+                    coinsSpent = spendCoins(cost);
+                    if (!coinsSpent) {
+                        throw new Error('Not enough coins to generate artwork.');
+                    }
+                }
 
                 let data;
                 if (prompt) {
@@ -84,11 +98,26 @@ export const ProcessingScreen = ({ route, navigation }: any) => {
                     data = await processImage(imageUri, title || 'image.jpg', 'image/jpeg', options || {});
                 }
 
+                const finalTitle = title || (prompt ? `AI: ${prompt.substring(0, 20)}...` : 'My Painting');
+
+                const savedPaintingId = savePainting({
+                    title: finalTitle,
+                    thumbnailB64: data.thumbnail_b64 || '',
+                    progress: 0,
+                    filledRegions: {},
+                    totalRegions: data.regions.length,
+                    backendData: data,
+                    lastPlayedAt: Date.now(),
+                });
+
                 processingDone.current = true;
                 setStep(STEPS.length - 1);
                 AudioManager.playGameMusic();
-                setTimeout(() => navigation.replace('Game', { data, title }), 800);
+                setTimeout(() => navigation.replace('Game', { data, title: finalTitle, savedPaintingId }), 800);
             } catch (err: any) {
+                if (coinsSpent && cost) {
+                    addCoins(cost, 'Refund for failed generation');
+                }
                 processingDone.current = true;
                 setError(err?.response?.data?.detail || err?.message || 'Processing failed.');
             }

@@ -45,6 +45,7 @@ export const CreationScreen = () => {
     const [confirmImageUri, setConfirmImageUri] = useState<string | null>(null);
 
     const { coins, useEnergy } = useUserStore();
+    const GENERATION_COST = 20;
 
     useFocusEffect(
         React.useCallback(() => {
@@ -113,6 +114,14 @@ export const CreationScreen = () => {
             return;
         }
 
+        if (coins < GENERATION_COST) {
+            Alert.alert(
+                'Not Enough Coins',
+                `Generating art costs ${GENERATION_COST} coins. Play games or claim your daily reward to get more!`
+            );
+            return;
+        }
+
         const options = getProcessingOptions();
         
         if (selectedImageUri) {
@@ -120,6 +129,7 @@ export const CreationScreen = () => {
                 imageUri: selectedImageUri,
                 title: selectedImageTitle ?? 'My Painting',
                 options,
+                cost: GENERATION_COST,
             });
         } else {
             navigation.navigate('Processing' as any, {
@@ -127,6 +137,7 @@ export const CreationScreen = () => {
                 style: selectedStyle,
                 title: `AI: ${prompt.trim().substring(0, 20)}...`,
                 options,
+                cost: GENERATION_COST,
             });
         }
     };
@@ -245,8 +256,15 @@ export const CreationScreen = () => {
                     onPress={handleMainAction}
                     disabled={!prompt.trim() && !selectedImageUri}
                 >
-                    <Text style={styles.generateBtnText}>Generate Art</Text>
-                    <Icon name="arrow-right" size={20} color="#000" />
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={styles.generateBtnText}>Generate Art</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 12, backgroundColor: 'rgba(0,0,0,0.2)', paddingHorizontal: 8, paddingVertical: 4, borderRadius: 12 }}>
+                            <Icon name="star-four-points-outline" size={16} color="#000" />
+                            <Text style={{ color: '#000', fontSize: 14, fontWeight: 'bold', marginLeft: 4 }}>
+                                {GENERATION_COST}
+                            </Text>
+                        </View>
+                    </View>
                 </TouchableOpacity>
 
                 <View style={{ height: 100 }} />
