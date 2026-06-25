@@ -36,9 +36,10 @@ export const SplashScreen = () => {
 
         // Exit after 1800ms
         const timeout = setTimeout(() => {
-            exitProgress.value = withTiming(1, { duration: 300 }, () => {
-                runOnJS(navigateToNext)();
-            });
+            exitProgress.value = withTiming(1, { duration: 300 });
+            setTimeout(() => {
+                navigateToNext();
+            }, 300);
         }, 1800);
 
         return () => clearTimeout(timeout);

@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     selectedCard: {
-        borderColor: '#FFD700', // Gold Border
-        backgroundColor: '#FFF9E5', // Light Yellow Tint
+        borderColor: '#FFD700',
+        backgroundColor: '#FFF9E5',
     },
     emoji: {
         fontSize: 36,

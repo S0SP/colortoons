@@ -5,9 +5,16 @@ import Animated, {
     withTiming,
     useAnimatedStyle,
     Easing,
+    interpolateColor,
+    useDerivedValue,
 } from 'react-native-reanimated';
 
-export default function GameProgressBar({ progress }: { progress: number }) {
+interface GameProgressBarProps {
+    progress: number;
+    showPercentage?: boolean;
+}
+
+export default function GameProgressBar({ progress, showPercentage = true }: GameProgressBarProps) {
     const width = useSharedValue(0);
 
     useEffect(() => {
@@ -22,11 +29,28 @@ export default function GameProgressBar({ progress }: { progress: number }) {
         width: `${width.value}%` as any,
     }));
 
+    // Dynamic color based on progress (optional enhancement)
+    const colorProgress = useDerivedValue(() => width.value / 100);
+
+    const animatedFillStyle = useAnimatedStyle(() => {
+        const backgroundColor = interpolateColor(
+            colorProgress.value,
+            [0, 0.33, 0.66, 1],
+            ['#EF4444', '#F59E0B', '#7fff00', '#10B981']
+        );
+        return {
+            width: `${width.value}%` as any,
+            backgroundColor,
+        };
+    });
+
     return (
         <View style={styles.container}>
             <View style={styles.track}>
-                <Animated.View style={[styles.fill, fillStyle]} />
-                <Text style={styles.percent}>{progress}%</Text>
+                <Animated.View style={[styles.fill, animatedFillStyle]} />
+                {showPercentage && (
+                    <Text style={styles.percent}>{progress}%</Text>
+                )}
             </View>
         </View>
     );
@@ -52,7 +76,7 @@ const styles = StyleSheet.create({
         top: 0,
         height: 22,
         borderRadius: 11,
-        backgroundColor: '#7fff00',
+        backgroundColor: '#7fff00', // Default, overridden by animated style
     },
     percent: {
         color: 'white',

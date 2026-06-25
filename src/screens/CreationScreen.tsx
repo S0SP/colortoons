@@ -1,76 +1,87 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, ActivityIndicator, Alert, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    TextInput,
+    ScrollView,
+    TouchableOpacity,
+    ActivityIndicator,
+    Alert,
+    Image,
+    Platform,
+    Modal,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { COLORS, SPACING, FONTS, SHADOWS } from '../theme';
-import { StyleCard } from '../components/StyleCard';
 import { DifficultySlider } from '../components/DifficultySlider';
-import { generatePainting } from '../services/api';
+import { RegionSlider, getRegionLabel } from '../components/RegionSlider';
 import { useUserStore } from '../store';
-import { useNavigation } from '@react-navigation/native';
-
-const STYLES = [
-    { id: 'cartoon', label: 'Cartoon', emoji: '🎨' },
-    { id: 'realistic', label: 'Realistic', emoji: '👁️' },
-    { id: 'pixel', label: 'Pixel', emoji: '👾' },
-    { id: 'anime', label: 'Anime', emoji: '🎌' },
-];
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { AudioManager } from '../services/AudioManager';
 
 import Voice, { SpeechResultsEvent, SpeechErrorEvent } from '@react-native-voice/voice';
 import { launchImageLibrary } from 'react-native-image-picker';
-import { processImage, ProcessImageOptions } from '../services/api';
+import { ProcessImageOptions } from '../services/api';
+
+const STYLES = [
+    { id: 'cartoon', label: 'Cartoon' },
+    { id: 'realistic', label: 'Realistic' },
+    { id: 'pixel', label: 'Pixel Art' },
+    { id: 'anime', label: 'Anime' },
+    { id: 'watercolor', label: 'Watercolor' },
+];
 
 export const CreationScreen = () => {
     const navigation = useNavigation();
     const [prompt, setPrompt] = useState('');
     const [selectedStyle, setSelectedStyle] = useState('cartoon');
     const [difficulty, setDifficulty] = useState(50);
+    const [targetRegions, setTargetRegions] = useState(400);
     const [loading, setLoading] = useState(false);
     const [isListening, setIsListening] = useState(false);
+    const [selectedImageUri, setSelectedImageUri] = useState<string | null>(null);
+    const [selectedImageTitle, setSelectedImageTitle] = useState<string | null>(null);
+    const [confirmImageUri, setConfirmImageUri] = useState<string | null>(null);
 
     const { coins, useEnergy } = useUserStore();
 
-    const getDifficultyOptions = (diff: number): ProcessImageOptions => {
-        // difficulty: 0 = easiest (Kids), 100 = hardest (Photo Mode)
-        if (diff < 25) {
-            return { numColors: 12, targetRegions: 150, minRegionArea: 80 };  // Kids
-        } else if (diff < 50) {
-            return { numColors: 24, targetRegions: 400, minRegionArea: 40 };  // Easy
-        } else if (diff < 75) {
-            return { numColors: 32, targetRegions: 800, minRegionArea: 25 };  // Normal (default)
-        } else if (diff < 90) {
-            return { numColors: 64, targetRegions: 1500, minRegionArea: 10 };  // Art Mode
-        } else {
-            return { numColors: 128, targetRegions: 3000, minRegionArea: 1 };  // Photo Mode
-        }
+    useFocusEffect(
+        React.useCallback(() => {
+            AudioManager.playAppMusic();
+            setPrompt('');
+            setSelectedImageUri(null);
+            setSelectedImageTitle(null);
+            return () => { };
+        }, [])
+    );
+
+    const getProcessingOptions = (): ProcessImageOptions => {
+        let numColors: number;
+        let minRegionArea: number;
+
+        if (difficulty < 25) { numColors = 12; minRegionArea = 100; }
+        else if (difficulty < 50) { numColors = 24; minRegionArea = 50; }
+        else if (difficulty < 75) { numColors = 32; minRegionArea = 25; }
+        else if (difficulty < 90) { numColors = 64; minRegionArea = 10; }
+        else { numColors = 128; minRegionArea = 1; }
+
+        return { numColors, minRegionArea, targetRegions, maxDimension: 1024 };
     };
 
-    React.useEffect(() => {
-        const onSpeechStart = () => setIsListening(true);
-        const onSpeechEnd = () => setIsListening(false);
-        const onSpeechError = (e: SpeechErrorEvent) => {
-            console.error(e);
+    useEffect(() => {
+        Voice.onSpeechStart = () => setIsListening(true);
+        Voice.onSpeechEnd = () => setIsListening(false);
+        Voice.onSpeechError = (e: SpeechErrorEvent) => {
             setIsListening(false);
+            if (e.error?.message) Alert.alert('Voice Error', e.error.message);
         };
-        const onSpeechResults = (e: SpeechResultsEvent) => {
-            if (e.value && e.value[0]) {
-                setPrompt(e.value[0]);
-            }
+        Voice.onSpeechResults = (e: SpeechResultsEvent) => {
+            if (e.value?.[0]) setPrompt(prev => prev ? `${prev} ${e.value![0]}` : e.value![0]);
         };
-
-        Voice.onSpeechStart = onSpeechStart;
-        Voice.onSpeechEnd = onSpeechEnd;
-        Voice.onSpeechError = onSpeechError;
-        Voice.onSpeechResults = onSpeechResults;
 
         return () => {
-            Voice.onSpeechStart = undefined as any;
-            Voice.onSpeechEnd = undefined as any;
-            Voice.onSpeechError = undefined as any;
-            Voice.onSpeechResults = undefined as any;
-            Voice.destroy()
-                .then(() => Voice.removeAllListeners())
-                .catch(err => console.warn('Voice teardown error:', err));
+            Voice.destroy().then(() => Voice.removeAllListeners()).catch(() => {});
         };
     }, []);
 
@@ -78,350 +89,245 @@ export const CreationScreen = () => {
         try {
             if (isListening) {
                 await Voice.stop();
+                setIsListening(false);
             } else {
-                setPrompt(''); // Clear previous prompt for new input, or we can append if desired
+                if (Platform.OS === 'android') {
+                    const { PermissionsAndroid } = require('react-native');
+                    const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO);
+                    if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+                        Alert.alert('Permission Denied', 'Microphone permission is required');
+                        return;
+                    }
+                }
                 await Voice.start('en-US');
             }
-        } catch (e) {
-            console.error(e);
+        } catch (e: any) {
+            setIsListening(false);
+            Alert.alert('Voice Error', e.message || 'Failed to start voice recognition');
         }
     };
 
-    const handleCreate = async () => {
-        if (!prompt.trim()) return;
+    const handleMainAction = () => {
+        if (!prompt.trim() && !selectedImageUri) {
+            Alert.alert('Missing Input', 'Please enter a prompt or select an image');
+            return;
+        }
 
-        setLoading(true);
-        try {
-            // BYPASS: Mock Data for Testing without Backend
-            // const data = await generatePainting(prompt, selectedStyle, difficulty);
-
-            // Simulating API delay
-            await new Promise(r => setTimeout(r, 1500));
-
-            const mockData = {
-                width: 500, height: 500,
-                palette: ["#FF5733", "#33FF57", "#3357FF", "#FFFF33"],
-                regions: [
-                    // Simple Square (Color 0 - Red)
-                    { colorIndex: 0, pathData: "M50,50 L200,50 L200,200 L50,200 Z", labelPoint: { x: 125, y: 125 } },
-                    // Simple Square (Color 1 - Green)
-                    { colorIndex: 1, pathData: "M220,50 L370,50 L370,200 L220,200 Z", labelPoint: { x: 295, y: 125 } },
-                    // Triangle (Color 2 - Blue)
-                    { colorIndex: 2, pathData: "M50,250 L200,400 L50,400 Z", labelPoint: { x: 80, y: 350 } },
-                    // Circle-ish (Color 3 - Yellow)
-                    { colorIndex: 3, pathData: "M250,325 Q250,250 325,250 Q400,250 400,325 Q400,400 325,400 Q250,400 250,325 Z", labelPoint: { x: 325, y: 325 } }
-                ]
-            };
-
-            console.log("Using Mock Data:", mockData.regions.length, "regions");
-            // Navigate to Game Screen
-            (navigation as any).navigate('Game', { data: mockData });
-        } catch (e) {
-            Alert.alert("Error", "Failed to generate painting");
-        } finally {
-            setLoading(false);
+        const options = getProcessingOptions();
+        
+        if (selectedImageUri) {
+            navigation.navigate('Processing' as any, {
+                imageUri: selectedImageUri,
+                title: selectedImageTitle ?? 'My Painting',
+                options,
+            });
+        } else {
+            navigation.navigate('Processing' as any, {
+                prompt: prompt.trim(),
+                style: selectedStyle,
+                title: `AI: ${prompt.trim().substring(0, 20)}...`,
+                options,
+            });
         }
     };
 
     const handleImageUpload = async () => {
-        try {
-            const result = await launchImageLibrary({
-                mediaType: 'photo',
-                quality: 0.9,
-            });
-
-            if (result.didCancel || !result.assets?.[0]) return;
-            if (result.errorMessage) {
-                Alert.alert('Error', result.errorMessage);
-                return;
-            }
-
-            const asset = result.assets[0];
-            if (asset?.uri) {
-                (navigation as any).navigate('Processing', {
-                    imageUri: asset.uri,
-                    title: asset.fileName ?? 'painting.jpg',
-                    options: getDifficultyOptions(difficulty),
-                });
-            }
-        } catch (err) {
-            console.error(err);
-            Alert.alert('Error', 'Failed to pick image');
+        const result = await launchImageLibrary({ mediaType: 'photo', quality: 0.9, maxWidth: 2048, maxHeight: 2048 });
+        if (result.didCancel || !result.assets?.[0]) return;
+        
+        if (result.errorMessage) {
+            Alert.alert('Error', result.errorMessage);
+            return;
         }
+        
+        // Show confirmation popup first
+        setConfirmImageUri(result.assets[0].uri!);
+        setSelectedImageTitle(result.assets[0].fileName ?? 'My Painting');
+    };
+
+    const confirmImage = () => {
+        setSelectedImageUri(confirmImageUri);
+        setConfirmImageUri(null);
+    };
+
+    const cancelImage = () => {
+        setConfirmImageUri(null);
+        setSelectedImageTitle(null);
     };
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* Header: Fox & Bubble & Input */}
-            <View style={styles.topSection}>
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+                <View style={styles.headerRow}>
+                    <Text style={styles.headerTitle}>Create Magic</Text>
+                </View>
+                
                 {/* Fox Peeking - Rendered First but Z-indexed in styles */}
                 <Image
                     source={require('../assets/fox_peeking.png')}
                     style={styles.foxPeeking as any}
                     resizeMode="contain"
                 />
-
-                {/* Speech Bubble */}
-                <View style={styles.speechBubbleContainer}>
-                    <View style={styles.speechBubble}>
-                        <Text style={styles.speechText}>What shall we{'\n'}paint today?</Text>
-                        <View style={styles.bubbleTail} />
-                    </View>
-                </View>
-
-                {/* Input Area (Below Fox Paws) */}
-                <View style={styles.inputCard}>
-                    <View style={styles.inputInnerContainer}>
+                
+                <View style={styles.inputContainer}>
+                    {selectedImageUri ? (
+                        <View style={styles.selectedImageWrapper}>
+                            <View style={styles.imageHeader}>
+                                <Icon name="image-check" size={24} color="#38BDF8" />
+                                <Text style={styles.imageTitleText} numberOfLines={1}>
+                                    {selectedImageTitle || 'Custom Photo Selected'}
+                                </Text>
+                            </View>
+                            <Text style={{ color: '#A3A3A3', fontSize: 14, marginTop: 4 }}>
+                                Ready to be transformed into a masterpiece. Adjust the sliders below and tap Generate.
+                            </Text>
+                            <TouchableOpacity style={styles.clearBtn} onPress={() => setSelectedImageUri(null)}>
+                                <Icon name="close" size={20} color="#FFF" />
+                            </TouchableOpacity>
+                        </View>
+                    ) : (
                         <TextInput
-                            style={styles.input}
-                            placeholder="Draw a dinosaur drinking a..."
-                            placeholderTextColor="#94A3B8"
+                            style={styles.textInput}
+                            placeholder="Describe what you want to paint..."
+                            placeholderTextColor="#525252"
                             multiline
                             value={prompt}
                             onChangeText={setPrompt}
                         />
+                    )}
+
+                    <View style={styles.inputActions}>
+                        <TouchableOpacity style={styles.actionBtn} onPress={handleImageUpload}>
+                            <Icon name="image-outline" size={24} color="#A3A3A3" />
+                        </TouchableOpacity>
+                        {!selectedImageUri && (
+                            <TouchableOpacity style={[styles.actionBtn, isListening && styles.actionBtnActive]} onPress={toggleListening}>
+                                <Icon name="microphone-outline" size={24} color={isListening ? "#FFF" : "#A3A3A3"} />
+                            </TouchableOpacity>
+                        )}
                     </View>
-                    {/* Mic Button */}
-                    <TouchableOpacity
-                        style={[styles.micButton, isListening && styles.micButtonActive]}
-                        onPress={toggleListening}
-                    >
-                        <Icon
-                            name={isListening ? "microphone-off" : "microphone"}
-                            size={28}
-                            color={isListening ? "#FFF" : "#00A3FF"}
-                        />
-                    </TouchableOpacity>
-
-                    {/* Image Upload Button - Left Side */}
-                    <TouchableOpacity
-                        style={styles.uploadButton}
-                        onPress={handleImageUpload}
-                        disabled={loading}
-                    >
-                        <Icon
-                            name="image-plus"
-                            size={28}
-                            color="#7d51c1"
-                        />
-                    </TouchableOpacity>
                 </View>
-            </View>
 
-            <Text style={styles.sectionTitle}>Pick a Style</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.styleList}>
-                {STYLES.map(s => (
-                    <StyleCard
-                        key={s.id}
-                        label={s.label}
-                        emoji={s.emoji}
-                        selected={selectedStyle === s.id}
-                        onPress={() => setSelectedStyle(s.id)}
-                    />
-                ))}
+                {!selectedImageUri && (
+                    <View style={styles.section}>
+                        <Text style={styles.sectionTitle}>Art Style</Text>
+                        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.styleScroll}>
+                            {STYLES.map(s => (
+                                <TouchableOpacity 
+                                    key={s.id} 
+                                    style={[styles.styleChip, selectedStyle === s.id && styles.styleChipActive]}
+                                    onPress={() => setSelectedStyle(s.id)}
+                                >
+                                    <Text style={[styles.styleText, selectedStyle === s.id && styles.styleTextActive]}>
+                                        {s.label}
+                                    </Text>
+                                </TouchableOpacity>
+                            ))}
+                        </ScrollView>
+                    </View>
+                )}
+
+                <View style={styles.section}>
+                    <Text style={styles.sectionTitle}>Complexity</Text>
+                    <DifficultySlider value={difficulty} onValueChange={setDifficulty} min={0} max={100} />
+                </View>
+
+                <View style={styles.section}>
+                    <View style={styles.rowBetween}>
+                        <Text style={styles.sectionTitle}>Detail Level</Text>
+                        <Text style={styles.detailValue}>{targetRegions} regions</Text>
+                    </View>
+                    <RegionSlider value={targetRegions} onValueChange={setTargetRegions} min={20} max={4000} />
+                </View>
+
+                <TouchableOpacity 
+                    style={[styles.generateBtn, (!prompt.trim() && !selectedImageUri) && styles.generateBtnDisabled]} 
+                    onPress={handleMainAction}
+                    disabled={!prompt.trim() && !selectedImageUri}
+                >
+                    <Text style={styles.generateBtnText}>Generate Art</Text>
+                    <Icon name="arrow-right" size={20} color="#000" />
+                </TouchableOpacity>
+
+                <View style={{ height: 100 }} />
             </ScrollView>
 
-            <Text style={styles.sectionTitle}>Difficulty</Text>
-            <View style={styles.sliderContainer}>
-                <DifficultySlider
-                    value={difficulty}
-                    onValueChange={setDifficulty}
-                    min={0}
-                    max={100}
-                />
-            </View>
-
-            <TouchableOpacity
-                style={[styles.button, (!prompt || loading) && styles.disabledButton]}
-                onPress={handleCreate}
-                disabled={loading || !prompt}
+            {/* Image Confirmation Modal */}
+            <Modal
+                visible={!!confirmImageUri}
+                animationType="fade"
+                transparent={true}
+                onRequestClose={cancelImage}
             >
-                {loading ? (
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <ActivityIndicator color="#FFF" />
-                        <Text style={[styles.buttonText, { marginLeft: 10 }]}>Processing...</Text>
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContent}>
+                        <Text style={styles.modalTitle}>Use this photo?</Text>
+                        <View style={styles.modalImageContainer}>
+                            {confirmImageUri && (
+                                <Image 
+                                    source={{ uri: confirmImageUri }} 
+                                    style={styles.modalPreviewImage} 
+                                />
+                            )}
+                        </View>
+                        <Text style={styles.modalSubtitle}>
+                            You can tweak the complexity sliders below after confirming.
+                        </Text>
+                        
+                        <View style={styles.modalActionRow}>
+                            <TouchableOpacity style={styles.modalCancelBtn} onPress={cancelImage}>
+                                <Text style={styles.modalCancelText}>Cancel</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.modalConfirmBtn} onPress={confirmImage}>
+                                <Text style={styles.modalConfirmText}>Confirm</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                ) : (
-                    <Text style={styles.buttonText}>MAKE IT REAL! ⚡</Text>
-                )}
-            </TouchableOpacity>
+                </View>
+            </Modal>
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#e9dafe', // Lavender to match fox background
-        padding: SPACING.m,
-    },
-    topSection: {
-        marginTop: 100, // Moved down by ~30%
-        marginBottom: SPACING.l,
-        position: 'relative',
-        height: 200, // Increased height
-    },
-    // Bubble
-    speechBubbleContainer: {
-        position: 'absolute',
-        top: -50, // Align with fox head
-        right: 20, // Keep some margin
-        left: 150, // Start after Fox head (140 wide)
-        zIndex: 5,
-        alignItems: 'flex-start',
-    },
-    speechBubble: {
-        backgroundColor: 'white',
-        paddingHorizontal: 20,
-        paddingVertical: 14,
-        borderRadius: 24, // Very rounded
-        ...SHADOWS.small,
-        elevation: 4,
-        width: '100%',
-    },
-    speechText: {
-        fontFamily: 'sans-serif-rounded', // Android rounded font
-        fontWeight: '700', // Extra Bold
-        color: '#7d51c1', // Vibrant Purple
-        fontSize: 20,
-        lineHeight: 24,
-        textAlign: 'center',
-    },
-    bubbleTail: {
-        position: 'absolute',
-        left: -12, // Move outside bubble on the left
-        top: '50%', // Center vertically relative to bubble size? Or lower?
-        marginTop: 10, // Push down a bit to match "mouth" level
-        width: 0,
-        height: 0,
-        backgroundColor: 'transparent',
-        borderStyle: 'solid',
-        borderTopWidth: 10,
-        borderBottomWidth: 10,
-        borderRightWidth: 15, // Points left
-        borderTopColor: 'transparent',
-        borderBottomColor: 'transparent',
-        borderRightColor: 'white', // The visible triangle
-    },
-    // Fox
-    foxPeeking: {
-        position: 'absolute',
-        bottom: 181.5, // Move up to sit ON TOP of the box (overlap slightly for blend)
-        left: 20,
-        width: 140,
-        height: 140, // Larger to see details
-        zIndex: 2,
-    },
-    // Input
-    // Input - Outer "Double Border" Container
-    inputCard: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: '#FFFFFF', // Outer Border Color (White)
-        borderRadius: 34, // Slightly larger
-        padding: 6, // Matches "Border Width" of outer layer
-        height: 198, // Total Height
-
-        // Outside Shadow
-        elevation: 8,
-        shadowColor: '#6D28D9', // Purple-ish shadow
-        shadowOffset: { width: 0, height: 6 },
-        shadowOpacity: 0.2,
-        shadowRadius: 10,
-
-        zIndex: 1,
-    },
-    // Inner "Inset" Container
-    inputInnerContainer: {
-        flex: 1,
-        backgroundColor: '#F8FAFC', // Slightly off-white for "inset" feel
-        borderRadius: 28, // Matches inner curve
-        borderWidth: 2,
-        borderColor: '#E2E8F0', // Inner subtle border
-        padding: SPACING.m,
-        paddingTop: 34, // Text spacing
-        paddingRight: 80,
-
-        // "Inside Blur" simulation (using faint inner border color usually works best in RN w/o Skia)
-        // If we want true inner shadow, we need a library. 
-        // For now, let's rely on the color diff and border.
-    },
-    input: {
-        ...FONTS.medium,
-        fontSize: 20,
-        color: '#475569',
-        flex: 1,
-        textAlignVertical: 'top',
-        marginTop: 2,
-    },
-    micButton: {
-        position: 'absolute',
-        bottom: 30,
-        right: 16,
-        width: 56,
-        height: 56,
-        borderRadius: 28,
-        backgroundColor: '#FFF',
-        borderWidth: 3,
-        borderColor: '#00A3FF',
-        justifyContent: 'center',
-        alignItems: 'center',
-        elevation: 2,
-    },
-    micButtonActive: {
-        backgroundColor: '#EF4444', // Red for recording
-        borderColor: '#EF4444',
-    },
-    uploadButton: {
-        position: 'absolute',
-        bottom: 30,
-        left: 16,
-        width: 56,
-        height: 56,
-        borderRadius: 28,
-        backgroundColor: '#FFF',
-        borderWidth: 3,
-        borderColor: '#7d51c1',
-        justifyContent: 'center',
-        alignItems: 'center',
-        elevation: 2,
-    },
-    sectionTitle: {
-        ...FONTS.bold,
-        fontSize: 20,
-        color: 'rgba(51, 13, 107)', // Slate
-        marginBottom: 12,
-    },
-    styleList: {
-        marginBottom: SPACING.l,
-        overflow: 'visible', // For shadows
-        maxHeight: 140,
-    },
-    sliderContainer: {
-        // backgroundColor: COLORS.card, // Removed dark card
-        paddingHorizontal: SPACING.m, // Keep horizontal padding
-        // padding: SPACING.m, // Removed vertical padding
-        // borderRadius: 12,
-        marginBottom: SPACING.xxl,
-    },
-    button: {
-        backgroundColor: 'purple',
-        padding: SPACING.m,
-        borderRadius: 30,
-        alignItems: 'center',
-        shadowColor: 'purple',
-        shadowOpacity: 0.5,
-        shadowRadius: 10,
-        elevation: 8,
-    },
-    disabledButton: {
-        opacity: 0.5,
-    },
-    buttonText: {
-        color: COLORS.white,
-        ...(FONTS.bold as any),
-        fontSize: 20,
-    },
+    container: { flex: 1, backgroundColor: '#121212' },
+    scrollContent: { padding: 24 },
+    headerRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 32 },
+    headerTitle: { fontSize: 32, fontWeight: '800', color: '#FFF', letterSpacing: -0.5 },
+    foxPeeking: { width: 140, height: 140, position: 'absolute', top: 10, right: 10, zIndex: 10 },
+    inputContainer: { backgroundColor: '#1A1A1A', borderRadius: 20, padding: 16, marginBottom: 32, borderWidth: 1, borderColor: '#262626' },
+    textInput: { color: '#FFF', fontSize: 18, minHeight: 100, textAlignVertical: 'top', fontWeight: '500' },
+    selectedImageWrapper: { backgroundColor: '#262626', borderRadius: 16, padding: 16, position: 'relative' },
+    imageHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 12 },
+    imageTitleText: { color: '#FFF', fontSize: 16, fontWeight: '600', marginLeft: 12, flex: 1 },
+    selectedImageThumbnail: { width: '100%', height: 120, borderRadius: 12, resizeMode: 'cover', opacity: 0.8 },
+    clearBtn: { position: 'absolute', top: 12, right: 12, backgroundColor: 'rgba(0,0,0,0.8)', padding: 8, borderRadius: 20 },
+    inputActions: { flexDirection: 'row', justifyContent: 'flex-end', borderTopWidth: 1, borderTopColor: '#262626', paddingTop: 16, marginTop: 8 },
+    actionBtn: { padding: 8, marginLeft: 16, borderRadius: 12, backgroundColor: '#262626' },
+    actionBtnActive: { backgroundColor: '#EF4444' },
+    section: { marginBottom: 32 },
+    sectionTitle: { fontSize: 14, fontWeight: '600', color: '#A3A3A3', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 16 },
+    styleScroll: { flexDirection: 'row' },
+    styleChip: { paddingHorizontal: 20, paddingVertical: 10, borderRadius: 20, backgroundColor: '#1A1A1A', borderWidth: 1, borderColor: '#262626', marginRight: 12 },
+    styleChipActive: { backgroundColor: '#FFF', borderColor: '#FFF' },
+    styleText: { color: '#A3A3A3', fontWeight: '600' },
+    styleTextActive: { color: '#000' },
+    rowBetween: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 },
+    detailValue: { color: '#FFF', fontSize: 14, fontWeight: '500', marginBottom: 16 },
+    generateBtn: { backgroundColor: '#FFF', flexDirection: 'row', paddingVertical: 18, borderRadius: 16, justifyContent: 'center', alignItems: 'center', marginTop: 16 },
+    generateBtnDisabled: { opacity: 0.5 },
+    generateBtnText: { color: '#000', fontSize: 18, fontWeight: '700', marginRight: 8 },
+    
+    // Modal Styles
+    modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.85)', justifyContent: 'center', alignItems: 'center', padding: 24 },
+    modalContent: { backgroundColor: '#1A1A1A', borderRadius: 24, padding: 24, width: '100%', borderWidth: 1, borderColor: '#262626' },
+    modalTitle: { fontSize: 24, fontWeight: '800', color: '#FFF', marginBottom: 20, textAlign: 'center' },
+    modalImageContainer: { width: '100%', height: 300, backgroundColor: '#121212', borderRadius: 16, overflow: 'hidden', marginBottom: 16 },
+    modalPreviewImage: { width: '100%', height: '100%', resizeMode: 'contain' },
+    modalSubtitle: { color: '#A3A3A3', fontSize: 14, textAlign: 'center', marginBottom: 24, paddingHorizontal: 16 },
+    modalActionRow: { flexDirection: 'row', gap: 12 },
+    modalCancelBtn: { flex: 1, paddingVertical: 16, borderRadius: 16, backgroundColor: '#262626', alignItems: 'center' },
+    modalCancelText: { color: '#FFF', fontSize: 16, fontWeight: '600' },
+    modalConfirmBtn: { flex: 1, paddingVertical: 16, borderRadius: 16, backgroundColor: '#FFF', alignItems: 'center' },
+    modalConfirmText: { color: '#000', fontSize: 16, fontWeight: '700' },
 });

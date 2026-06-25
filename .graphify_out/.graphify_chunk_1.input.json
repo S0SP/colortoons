@@ -1,0 +1,29 @@
+{
+  "chunk_num": 1,
+  "total_chunks": 2,
+  "files": [
+    "codebase_walkthrough.md",
+    "crash_log.txt",
+    "crash_log2.txt",
+    "crash_log3.txt",
+    "README.md",
+    "android\\build_error.txt",
+    "android\\build_log.txt",
+    "android\\build_output.txt",
+    "android\\build_output_utf8.txt",
+    "dummy.jpg",
+    "android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png",
+    "android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png",
+    "android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png",
+    "android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png",
+    "android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png",
+    "android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png",
+    "android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png",
+    "android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png",
+    "android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png",
+    "android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png",
+    "src\\assets\\fox_avatar.png",
+    "src\\assets\\fox_banner.png"
+  ],
+  "file_count": 22
+}

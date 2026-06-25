@@ -1,0 +1,3384 @@
+{
+  "nodes": [
+    {
+      "id": "app_tsx",
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "App.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "babel_config_js",
+      "label": "babel.config.js",
+      "file_type": "code",
+      "source_file": "babel.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "check_corpus_py",
+      "label": "check_corpus.py",
+      "file_type": "code",
+      "source_file": "check_corpus.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "detect_files_py",
+      "label": "detect_files.py",
+      "file_type": "code",
+      "source_file": "detect_files.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_js",
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "jest_config_js",
+      "label": "jest.config.js",
+      "file_type": "code",
+      "source_file": "jest.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "metro_config_js",
+      "label": "metro.config.js",
+      "file_type": "code",
+      "source_file": "metro.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "run_graphify_py",
+      "label": "run_graphify.py",
+      "file_type": "code",
+      "source_file": "run_graphify.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "android_app_src_main_java_com_colorart_mainactivity_kt",
+      "label": "MainActivity.kt",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L1"
+    },
+    {
+      "id": "mainactivity_mainactivity",
+      "label": "MainActivity",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L8"
+    },
+    {
+      "id": "mainactivity_mainactivity_getmaincomponentname",
+      "label": ".getMainComponentName()",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L14"
+    },
+    {
+      "id": "mainactivity_mainactivity_createreactactivitydelegate",
+      "label": ".createReactActivityDelegate()",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L20"
+    },
+    {
+      "id": "android_app_src_main_java_com_colorart_mainapplication_kt",
+      "label": "MainApplication.kt",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainApplication.kt",
+      "source_location": "L1"
+    },
+    {
+      "id": "mainapplication_mainapplication",
+      "label": "MainApplication",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainApplication.kt",
+      "source_location": "L10"
+    },
+    {
+      "id": "mainapplication_mainapplication_oncreate",
+      "label": ".onCreate()",
+      "file_type": "code",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainApplication.kt",
+      "source_location": "L23"
+    },
+    {
+      "id": "ios_colorart_appdelegate_swift",
+      "label": "AppDelegate.swift",
+      "file_type": "code",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L1"
+    },
+    {
+      "id": "appdelegate_appdelegate",
+      "label": "AppDelegate",
+      "file_type": "code",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L6"
+    },
+    {
+      "id": "uiresponder",
+      "label": "UIResponder",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "uiapplicationdelegate",
+      "label": "UIApplicationDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "appdelegate_appdelegate_application",
+      "label": ".application()",
+      "file_type": "code",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L13"
+    },
+    {
+      "id": "appdelegate_reactnativedelegate",
+      "label": "ReactNativeDelegate",
+      "file_type": "code",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L36"
+    },
+    {
+      "id": "rctdefaultreactnativefactorydelegate",
+      "label": "RCTDefaultReactNativeFactoryDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "appdelegate_reactnativedelegate_sourceurl",
+      "label": ".sourceURL()",
+      "file_type": "code",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L37"
+    },
+    {
+      "id": "appdelegate_reactnativedelegate_bundleurl",
+      "label": ".bundleURL()",
+      "file_type": "code",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L41"
+    },
+    {
+      "id": "src_components_createnewbutton_tsx",
+      "label": "CreateNewButton.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "createnewbutton_createnewbutton",
+      "label": "CreateNewButton()",
+      "file_type": "code",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L11"
+    },
+    {
+      "id": "src_components_currencydisplay_tsx",
+      "label": "CurrencyDisplay.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "currencydisplay_formatnumber",
+      "label": "formatNumber()",
+      "file_type": "code",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L51"
+    },
+    {
+      "id": "src_components_customtabbar_tsx",
+      "label": "CustomTabBar.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "customtabbar_onpress",
+      "label": "onPress()",
+      "file_type": "code",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_components_dailyrewardmodal_tsx",
+      "label": "DailyRewardModal.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "dailyrewardmodal_handleclaim",
+      "label": "handleClaim()",
+      "file_type": "code",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L53"
+    },
+    {
+      "id": "src_components_difficultyslider_tsx",
+      "label": "DifficultySlider.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "difficultyslider_getdifficultylabel",
+      "label": "getDifficultyLabel()",
+      "file_type": "code",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L24"
+    },
+    {
+      "id": "difficultyslider_onlayout",
+      "label": "onLayout()",
+      "file_type": "code",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L81"
+    },
+    {
+      "id": "src_components_gameprogressbar_tsx",
+      "label": "GameProgressBar.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\GameProgressBar.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_regionslider_tsx",
+      "label": "RegionSlider.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "regionslider_getregionlabel",
+      "label": "getRegionLabel()",
+      "file_type": "code",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L29"
+    },
+    {
+      "id": "regionslider_onlayout",
+      "label": "onLayout()",
+      "file_type": "code",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L85"
+    },
+    {
+      "id": "src_components_saveprogressmodal_tsx",
+      "label": "SaveProgressModal.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\SaveProgressModal.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_stylecard_tsx",
+      "label": "StyleCard.tsx",
+      "file_type": "code",
+      "source_file": "src\\components\\StyleCard.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_navigation_rootnavigator_tsx",
+      "label": "RootNavigator.tsx",
+      "file_type": "code",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "rootnavigator_maintabs",
+      "label": "MainTabs()",
+      "file_type": "code",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_screens_creationscreen_tsx",
+      "label": "CreationScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "creationscreen_getprocessingoptions",
+      "label": "getProcessingOptions()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L60"
+    },
+    {
+      "id": "creationscreen_onspeechstart",
+      "label": "onSpeechStart()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L92"
+    },
+    {
+      "id": "creationscreen_onspeechend",
+      "label": "onSpeechEnd()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L93"
+    },
+    {
+      "id": "creationscreen_onspeecherror",
+      "label": "onSpeechError()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L94"
+    },
+    {
+      "id": "creationscreen_onspeechresults",
+      "label": "onSpeechResults()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L101"
+    },
+    {
+      "id": "creationscreen_togglelistening",
+      "label": "toggleListening()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L123"
+    },
+    {
+      "id": "creationscreen_handlecreate",
+      "label": "handleCreate()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L164"
+    },
+    {
+      "id": "creationscreen_handleprocessimage",
+      "label": "handleProcessImage()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L181"
+    },
+    {
+      "id": "creationscreen_handleimageupload",
+      "label": "handleImageUpload()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L193"
+    },
+    {
+      "id": "creationscreen_handlemainaction",
+      "label": "handleMainAction()",
+      "file_type": "code",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L219"
+    },
+    {
+      "id": "src_screens_galleryscreen_tsx",
+      "label": "GalleryScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "galleryscreen_difficultybadge",
+      "label": "DifficultyBadge()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L145"
+    },
+    {
+      "id": "galleryscreen_handlelike",
+      "label": "handleLike()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L243"
+    },
+    {
+      "id": "galleryscreen_copyimagetolocalcache",
+      "label": "copyImageToLocalCache()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L256"
+    },
+    {
+      "id": "galleryscreen_handlecardpress",
+      "label": "handleCardPress()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L282"
+    },
+    {
+      "id": "src_screens_gamescreen_tsx",
+      "label": "GameScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "gamescreen_loadsound",
+      "label": "loadSound()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L72"
+    },
+    {
+      "id": "gamescreen_playsquash",
+      "label": "playSquash()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L83"
+    },
+    {
+      "id": "gamescreen_playchime",
+      "label": "playChime()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L84"
+    },
+    {
+      "id": "gamescreen_playfanfare",
+      "label": "playFanfare()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L85"
+    },
+    {
+      "id": "gamescreen_getcontrastcolor",
+      "label": "getContrastColor()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L130"
+    },
+    {
+      "id": "gamescreen_bboxintersectsviewport",
+      "label": "bboxIntersectsViewport()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L141"
+    },
+    {
+      "id": "gamescreen_getpath",
+      "label": "getPath()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L216"
+    },
+    {
+      "id": "gamescreen_clear",
+      "label": "clear()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L223"
+    },
+    {
+      "id": "gamescreen_size",
+      "label": "size()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L224"
+    },
+    {
+      "id": "gamescreen_handleautosave",
+      "label": "handleAutoSave()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L499"
+    },
+    {
+      "id": "gamescreen_handlesave",
+      "label": "handleSave()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L504"
+    },
+    {
+      "id": "gamescreen_handlediscard",
+      "label": "handleDiscard()",
+      "file_type": "code",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L534"
+    },
+    {
+      "id": "src_screens_homescreen_tsx",
+      "label": "HomeScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "homescreen_handlelongpress",
+      "label": "handleLongPress()",
+      "file_type": "code",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L37"
+    },
+    {
+      "id": "homescreen_handleresumepainting",
+      "label": "handleResumePainting()",
+      "file_type": "code",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L130"
+    },
+    {
+      "id": "homescreen_handledeletepainting",
+      "label": "handleDeletePainting()",
+      "file_type": "code",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L141"
+    },
+    {
+      "id": "src_screens_onboardingscreen_tsx",
+      "label": "OnboardingScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "onboardingscreen_finishonboarding",
+      "label": "finishOnboarding()",
+      "file_type": "code",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L83"
+    },
+    {
+      "id": "onboardingscreen_handlenext",
+      "label": "handleNext()",
+      "file_type": "code",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L93"
+    },
+    {
+      "id": "onboardingscreen_handleskip",
+      "label": "handleSkip()",
+      "file_type": "code",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L101"
+    },
+    {
+      "id": "src_screens_processingscreen_tsx",
+      "label": "ProcessingScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "processingscreen_floatingparticle",
+      "label": "FloatingParticle()",
+      "file_type": "code",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L32"
+    },
+    {
+      "id": "processingscreen_doprocess",
+      "label": "doProcess()",
+      "file_type": "code",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L138"
+    },
+    {
+      "id": "src_screens_profilescreen_tsx",
+      "label": "ProfileScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\ProfileScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "profilescreen_profilescreen",
+      "label": "ProfileScreen()",
+      "file_type": "code",
+      "source_file": "src\\screens\\ProfileScreen.tsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "src_screens_splashscreen_tsx",
+      "label": "SplashScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "splashscreen_splashscreen",
+      "label": "SplashScreen()",
+      "file_type": "code",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "src_screens_victoryscreen_tsx",
+      "label": "VictoryScreen.tsx",
+      "file_type": "code",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "victoryscreen_animatedscorecounter",
+      "label": "AnimatedScoreCounter()",
+      "file_type": "code",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L26"
+    },
+    {
+      "id": "victoryscreen_coinparticle",
+      "label": "CoinParticle()",
+      "file_type": "code",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L57"
+    },
+    {
+      "id": "src_services_api_ts",
+      "label": "api.ts",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "api_decodebase64tobytes",
+      "label": "decodeBase64ToBytes()",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "api_checkhealth",
+      "label": "checkHealth()",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L138"
+    },
+    {
+      "id": "api_decoderegionmap",
+      "label": "decodeRegionMap()",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L148"
+    },
+    {
+      "id": "api_postprocess",
+      "label": "postProcess()",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "api_processimage",
+      "label": "processImage()",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L207"
+    },
+    {
+      "id": "api_generateimage",
+      "label": "generateImage()",
+      "file_type": "code",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L321"
+    },
+    {
+      "id": "src_services_audiomanager_ts",
+      "label": "AudioManager.ts",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass",
+      "label": "AudioManagerClass",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_initialize",
+      "label": ".initialize()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_loadsound",
+      "label": ".loadSound()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L68"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_playappmusic",
+      "label": ".playAppMusic()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L89"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_playgamemusic",
+      "label": ".playGameMusic()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L107"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_fadein",
+      "label": ".fadeIn()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L125"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_fadeout",
+      "label": ".fadeOut()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L141"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_pause",
+      "label": ".pause()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L159"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_resume",
+      "label": ".resume()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L164"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_stop",
+      "label": ".stop()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_setvolume",
+      "label": ".setVolume()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L178"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_togglemute",
+      "label": ".toggleMute()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L184"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_muted",
+      "label": ".muted()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L194"
+    },
+    {
+      "id": "audiomanager_audiomanagerclass_cleanup",
+      "label": ".cleanup()",
+      "file_type": "code",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L198"
+    },
+    {
+      "id": "src_store_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src\\store\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_store_mmkvstorage_ts",
+      "label": "mmkvStorage.ts",
+      "file_type": "code",
+      "source_file": "src\\store\\mmkvStorage.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_store_usegamestore_ts",
+      "label": "useGameStore.ts",
+      "file_type": "code",
+      "source_file": "src\\store\\useGameStore.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_store_usepaintingstore_ts",
+      "label": "usePaintingStore.ts",
+      "file_type": "code",
+      "source_file": "src\\store\\usePaintingStore.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_store_useuserstore_ts",
+      "label": "useUserStore.ts",
+      "file_type": "code",
+      "source_file": "src\\store\\useUserStore.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_theme_index_ts",
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src\\theme\\index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_app_test_tsx",
+      "label": "App.test.tsx",
+      "file_type": "code",
+      "source_file": "__tests__\\App.test.tsx",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "app_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "app_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "app_tsx",
+      "target": "react_native_gesture_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "app_tsx",
+      "target": "react_native_safe_area_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "app_tsx",
+      "target": "src_navigation_rootnavigator",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "app_tsx",
+      "target": "src_services_audiomanager",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "App.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "check_corpus_py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "check_corpus.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "check_corpus_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "check_corpus.py",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "detect_files_py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "detect_files.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "detect_files_py",
+      "target": "graphify_detect",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "detect_files.py",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "detect_files_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "detect_files.py",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "index_js",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "index_js",
+      "target": "app",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "index_js",
+      "target": "app_json",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "index.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "run_graphify_py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "run_graphify.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "run_graphify_py",
+      "target": "sys",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "run_graphify.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "run_graphify_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "run_graphify.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "run_graphify_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "run_graphify.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "run_graphify_py",
+      "target": "graphify_detect",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "run_graphify.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "run_graphify_py",
+      "target": "graphify_extract",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "run_graphify.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "android_app_src_main_java_com_colorart_mainactivity_kt",
+      "target": "mainactivity_mainactivity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "mainactivity_mainactivity",
+      "target": "mainactivity_mainactivity_getmaincomponentname",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "mainactivity_mainactivity",
+      "target": "mainactivity_mainactivity_createreactactivitydelegate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainActivity.kt",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "android_app_src_main_java_com_colorart_mainapplication_kt",
+      "target": "mainapplication_mainapplication",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainApplication.kt",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "mainapplication_mainapplication",
+      "target": "mainapplication_mainapplication_oncreate",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "android\\app\\src\\main\\java\\com\\colorart\\MainApplication.kt",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "ios_colorart_appdelegate_swift",
+      "target": "uikit",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "ios_colorart_appdelegate_swift",
+      "target": "react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "ios_colorart_appdelegate_swift",
+      "target": "react_rctappdelegate",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "ios_colorart_appdelegate_swift",
+      "target": "reactappdependencyprovider",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "ios_colorart_appdelegate_swift",
+      "target": "appdelegate_appdelegate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "uiresponder",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "uiapplicationdelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_application",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "ios_colorart_appdelegate_swift",
+      "target": "appdelegate_reactnativedelegate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_reactnativedelegate",
+      "target": "rctdefaultreactnativefactorydelegate",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_reactnativedelegate",
+      "target": "appdelegate_reactnativedelegate_sourceurl",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_reactnativedelegate",
+      "target": "appdelegate_reactnativedelegate_bundleurl",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_appdelegate_application",
+      "target": "appdelegate_reactnativedelegate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "appdelegate_reactnativedelegate_sourceurl",
+      "target": "appdelegate_reactnativedelegate_bundleurl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "ios\\colorArt\\AppDelegate.swift",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_createnewbutton_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_createnewbutton_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_createnewbutton_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_createnewbutton_tsx",
+      "target": "react_native_linear_gradient",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_createnewbutton_tsx",
+      "target": "createnewbutton_createnewbutton",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CreateNewButton.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_currencydisplay_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_currencydisplay_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_currencydisplay_tsx",
+      "target": "materialcommunityicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_currencydisplay_tsx",
+      "target": "src_components_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_currencydisplay_tsx",
+      "target": "src_components_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_currencydisplay_tsx",
+      "target": "currencydisplay_formatnumber",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CurrencyDisplay.tsx",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "blur",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "react_native_linear_gradient",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "materialcommunityicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "bottom_tabs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "src_components_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_customtabbar_tsx",
+      "target": "customtabbar_onpress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\CustomTabBar.tsx",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_dailyrewardmodal_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_dailyrewardmodal_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_dailyrewardmodal_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_dailyrewardmodal_tsx",
+      "target": "src_components_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_dailyrewardmodal_tsx",
+      "target": "dailyrewardmodal_handleclaim",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DailyRewardModal.tsx",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "react_native_gesture_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "react_native_skia",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "difficultyslider_getdifficultylabel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_difficultyslider_tsx",
+      "target": "difficultyslider_onlayout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\DifficultySlider.tsx",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_gameprogressbar_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\GameProgressBar.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_gameprogressbar_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\GameProgressBar.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_gameprogressbar_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\GameProgressBar.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "react_native_gesture_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "react_native_skia",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "regionslider_getregionlabel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_regionslider_tsx",
+      "target": "regionslider_onlayout",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\RegionSlider.tsx",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_saveprogressmodal_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\SaveProgressModal.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_saveprogressmodal_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\SaveProgressModal.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_saveprogressmodal_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\SaveProgressModal.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_saveprogressmodal_tsx",
+      "target": "blur",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\SaveProgressModal.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stylecard_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\StyleCard.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stylecard_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\StyleCard.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stylecard_tsx",
+      "target": "materialcommunityicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\StyleCard.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stylecard_tsx",
+      "target": "src_components_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\components\\StyleCard.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "native_stack",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "bottom_tabs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_components_customtabbar",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_homescreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_creationscreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_processingscreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_gamescreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_galleryscreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_profilescreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_victoryscreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_splashscreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_screens_onboardingscreen",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "src_navigation_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_navigation_rootnavigator_tsx",
+      "target": "rootnavigator_maintabs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\navigation\\RootNavigator.tsx",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "materialcommunityicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "react_native_safe_area_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_components_stylecard",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_components_difficultyslider",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_components_regionslider",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_services_audiomanager",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "voice",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "react_native_image_picker",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "src_screens_services_api",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_getprocessingoptions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_onspeechstart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_onspeechend",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_onspeecherror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_onspeechresults",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_togglelistening",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_handlecreate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_handleprocessimage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_handleimageupload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_creationscreen_tsx",
+      "target": "creationscreen_handlemainaction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "creationscreen_handlecreate",
+      "target": "creationscreen_getprocessingoptions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "creationscreen_handleprocessimage",
+      "target": "creationscreen_getprocessingoptions",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "creationscreen_handlemainaction",
+      "target": "creationscreen_handlecreate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "creationscreen_handlemainaction",
+      "target": "creationscreen_handleprocessimage",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "ionicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "react_native_safe_area_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "src_screens_services_audiomanager",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "react_native_fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "galleryscreen_difficultybadge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "galleryscreen_handlelike",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L243",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "galleryscreen_copyimagetolocalcache",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_galleryscreen_tsx",
+      "target": "galleryscreen_handlecardpress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "galleryscreen_handlecardpress",
+      "target": "galleryscreen_copyimagetolocalcache",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GalleryScreen.tsx",
+      "source_location": "L311",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "react_native_skia",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "react_native_gesture_handler",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "materialcommunityicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_store_usegamestore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "react_native_safe_area_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_components_gameprogressbar",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_services_api",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_services_audiomanager",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_store_usepaintingstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "src_screens_components_saveprogressmodal",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_loadsound",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_playsquash",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_playchime",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_playfanfare",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_getcontrastcolor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_bboxintersectsviewport",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_getpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L216",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_clear",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_size",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L224",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_handleautosave",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L499",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_handlesave",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L504",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_gamescreen_tsx",
+      "target": "gamescreen_handlediscard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\GameScreen.tsx",
+      "source_location": "L534",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "react_native_safe_area_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "materialcommunityicons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_store",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_store_usepaintingstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_components_currencydisplay",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_components_dailyrewardmodal",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_components_createnewbutton",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "src_screens_services_audiomanager",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "homescreen_handlelongpress",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "homescreen_handleresumepainting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_homescreen_tsx",
+      "target": "homescreen_handledeletepainting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "src_screens_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "onboardingscreen_finishonboarding",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "onboardingscreen_handlenext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_onboardingscreen_tsx",
+      "target": "onboardingscreen_handleskip",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "onboardingscreen_handlenext",
+      "target": "onboardingscreen_finishonboarding",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "onboardingscreen_handleskip",
+      "target": "onboardingscreen_finishonboarding",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\OnboardingScreen.tsx",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "src_screens_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "src_screens_services_api",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "react_native_skia",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "src_screens_services_audiomanager",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "processingscreen_floatingparticle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_processingscreen_tsx",
+      "target": "processingscreen_doprocess",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_profilescreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProfileScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_profilescreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProfileScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_profilescreen_tsx",
+      "target": "src_screens_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProfileScreen.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_profilescreen_tsx",
+      "target": "profilescreen_profilescreen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\ProfileScreen.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "src_screens_theme",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "src_screens_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_splashscreen_tsx",
+      "target": "splashscreen_splashscreen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\SplashScreen.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "react_native_safe_area_context",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "react_native_reanimated",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "react_native_confetti_cannon",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "victoryscreen_animatedscorecounter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_screens_victoryscreen_tsx",
+      "target": "victoryscreen_coinparticle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\screens\\VictoryScreen.tsx",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "axios",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "pako",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "api_decodebase64tobytes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "api_checkhealth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "api_decoderegionmap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L148",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "api_postprocess",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "api_processimage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_api_ts",
+      "target": "api_generateimage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "api_decoderegionmap",
+      "target": "api_decodebase64tobytes",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "api_postprocess",
+      "target": "api_decoderegionmap",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "api_processimage",
+      "target": "api_postprocess",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "api_generateimage",
+      "target": "api_postprocess",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\api.ts",
+      "source_location": "L349",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_audiomanager_ts",
+      "target": "react_native_sound",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_audiomanager_ts",
+      "target": "react_native",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_services_audiomanager_ts",
+      "target": "audiomanager_audiomanagerclass",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_initialize",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_loadsound",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_playappmusic",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_playgamemusic",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_fadein",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_fadeout",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L141",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_pause",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_resume",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_stop",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_setvolume",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_togglemute",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_muted",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass",
+      "target": "audiomanager_audiomanagerclass_cleanup",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_initialize",
+      "target": "audiomanager_audiomanagerclass_loadsound",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_initialize",
+      "target": "audiomanager_audiomanagerclass_setvolume",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_initialize",
+      "target": "audiomanager_audiomanagerclass_playappmusic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_initialize",
+      "target": "audiomanager_audiomanagerclass_playgamemusic",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_playappmusic",
+      "target": "audiomanager_audiomanagerclass_fadeout",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_playappmusic",
+      "target": "audiomanager_audiomanagerclass_fadein",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_playgamemusic",
+      "target": "audiomanager_audiomanagerclass_fadeout",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_playgamemusic",
+      "target": "audiomanager_audiomanagerclass_fadein",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_fadein",
+      "target": "audiomanager_audiomanagerclass_setvolume",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_togglemute",
+      "target": "audiomanager_audiomanagerclass_pause",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_togglemute",
+      "target": "audiomanager_audiomanagerclass_resume",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "audiomanager_audiomanagerclass_cleanup",
+      "target": "audiomanager_audiomanagerclass_stop",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\services\\AudioManager.ts",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_mmkvstorage_ts",
+      "target": "middleware",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\mmkvStorage.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_usegamestore_ts",
+      "target": "zustand",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\useGameStore.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_usegamestore_ts",
+      "target": "src_store_useuserstore",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\useGameStore.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_usepaintingstore_ts",
+      "target": "zustand",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\usePaintingStore.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_usepaintingstore_ts",
+      "target": "middleware",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\usePaintingStore.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_usepaintingstore_ts",
+      "target": "src_store_mmkvstorage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\usePaintingStore.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_useuserstore_ts",
+      "target": "zustand",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\useUserStore.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_useuserstore_ts",
+      "target": "middleware",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\useUserStore.ts",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_store_useuserstore_ts",
+      "target": "src_store_mmkvstorage",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\store\\useUserStore.ts",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_app_test_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "__tests__\\App.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_app_test_tsx",
+      "target": "react_test_renderer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "__tests__\\App.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_app_test_tsx",
+      "target": "tests_app",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "__tests__\\App.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "creationscreen_togglelistening",
+      "target": "audiomanager_audiomanagerclass_stop",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\screens\\CreationScreen.tsx",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "homescreen_handleresumepainting",
+      "target": "audiomanager_audiomanagerclass_playgamemusic",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\screens\\HomeScreen.tsx",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "processingscreen_doprocess",
+      "target": "api_generateimage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "processingscreen_doprocess",
+      "target": "api_processimage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L152",
+      "weight": 1.0
+    },
+    {
+      "source": "processingscreen_doprocess",
+      "target": "audiomanager_audiomanagerclass_playgamemusic",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\screens\\ProcessingScreen.tsx",
+      "source_location": "L166",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

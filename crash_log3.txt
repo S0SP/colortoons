@@ -1,0 +1,649 @@
+--------- beginning of crash
+03-09 07:37:45.325  1220  1409 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 1409 (droid.bluetooth), pid 1220 (droid.bluetooth)
+03-09 07:37:47.846  1789  1789 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:37:47.846  1789  1789 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:37:47.846  1789  1789 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:37:47.846  1789  1789 F DEBUG   : Revision: '0'
+03-09 07:37:47.846  1789  1789 F DEBUG   : ABI: 'x86_64'
+03-09 07:37:47.846  1789  1789 F DEBUG   : Timestamp: 2026-03-09 07:37:45.642172601+0530
+03-09 07:37:47.846  1789  1789 F DEBUG   : Process uptime: 0s
+03-09 07:37:47.846  1789  1789 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:37:47.846  1789  1789 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:37:47.846  1789  1789 F DEBUG   : pid: 1220, tid: 1409, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:37:47.846  1789  1789 F DEBUG   : uid: 1002
+03-09 07:37:47.846  1789  1789 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:37:47.846  1789  1789 F DEBUG   :     rax fffffffffffffffc  rbx 000077105400a980  rcx 00007711c855d6b7  rdx 0000770e9ed6a9d0
+03-09 07:37:47.846  1789  1789 F DEBUG   :     r8  0000770f84017f50  r9  000000000000081e  r10 0000770f7400ffb0  r11 0000000000000206
+03-09 07:37:47.846  1789  1789 F DEBUG   :     r12 00000000fffffff7  r13 000077105400aa28  r14 0000000000000000  r15 2000000000000000
+03-09 07:37:47.846  1789  1789 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:37:47.846  1789  1789 F DEBUG   :     rbp 0000770e9ed6a820  rsp 0000770e9ed6a748  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:37:47.846  1789  1789 F DEBUG   : 16 total frames
+03-09 07:37:47.846  1789  1789 F DEBUG   : backtrace:
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #04 pc 0000000000019fad  /system/lib64/libbinder_ndk.so (AIBinder_transact+1725) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #05 pc 0000000000ca0b1b  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::BpBluetoothHci::initialize(std::__1::shared_ptr<aidl::android::hardware::bluetooth::IBluetoothHciCallbacks> const&)+187) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #06 pc 0000000000c9fdf8  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::AidlHci::initialize(std::__1::shared_ptr<bluetooth::hal::HciBackendCallbacks>)+408) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #07 pc 0000000000c9e31b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+1179) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #08 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #09 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #10 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #11 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #12 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #13 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #14 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:37:47.846  1789  1789 F DEBUG   :       #15 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:37:55.378  2425  2689 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 2689 (droid.bluetooth), pid 2425 (droid.bluetooth)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: Process: com.colorart, PID: 2995
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	existing SO sources: 
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64 flags = 0]]
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/base.apk!/lib/x86_64]]
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	Native lib dir: /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:38:01.436  2995  2995 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:38:21.872  2886  2886 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:38:21.872  2886  2886 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:38:21.872  2886  2886 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:38:21.872  2886  2886 F DEBUG   : Revision: '0'
+03-09 07:38:21.872  2886  2886 F DEBUG   : ABI: 'x86_64'
+03-09 07:38:21.872  2886  2886 F DEBUG   : Timestamp: 2026-03-09 07:37:55.894539914+0530
+03-09 07:38:21.872  2886  2886 F DEBUG   : Process uptime: 0s
+03-09 07:38:21.872  2886  2886 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:38:21.872  2886  2886 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:38:21.872  2886  2886 F DEBUG   : pid: 2425, tid: 2689, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:38:21.872  2886  2886 F DEBUG   : uid: 1002
+03-09 07:38:21.872  2886  2886 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:38:21.872  2886  2886 F DEBUG   :     rax fffffffffffffffc  rbx 000077105401e8a0  rcx 00007711c855d6b7  rdx 0000770ea12086d0
+03-09 07:38:21.872  2886  2886 F DEBUG   :     r8  0000770f84017410  r9  0000000000000000  r10 0000770ea12087f0  r11 0000000000000206
+03-09 07:38:21.872  2886  2886 F DEBUG   :     r12 000000005f4e5446  r13 000077105401e948  r14 0000000000000000  r15 2000000000000000
+03-09 07:38:21.872  2886  2886 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:38:21.872  2886  2886 F DEBUG   :     rbp 0000770ea1208520  rsp 0000770ea1208448  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:38:21.872  2886  2886 F DEBUG   : 17 total frames
+03-09 07:38:21.872  2886  2886 F DEBUG   : backtrace:
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #04 pc 000000000008647f  /system/lib64/libbinder.so (android::BpBinder::getInterfaceDescriptor() const+303) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #05 pc 000000000001bef0  /system/lib64/libbinder_ndk.so (AIBinder_associateClass+80) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #06 pc 0000000000ca14a2  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::IBluetoothHci::fromBinder(ndk::SpAIBinder const&)+50) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #07 pc 0000000000c9f740  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciBackend::CreateAidl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+1360) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #08 pc 0000000000c9e012  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+402) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #09 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #10 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #11 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #12 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #13 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #14 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #15 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:21.872  2886  2886 F DEBUG   :       #16 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: Process: com.colorart, PID: 3437
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	existing SO sources: 
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64 flags = 0]]
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/base.apk!/lib/x86_64]]
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	Native lib dir: /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:38:24.654  3437  3437 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:38:27.454  3441  3534 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 3534 (droid.bluetooth), pid 3441 (droid.bluetooth)
+03-09 07:38:30.724  3885  3885 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:38:30.724  3885  3885 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:38:30.725  3885  3885 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:38:30.725  3885  3885 F DEBUG   : Revision: '0'
+03-09 07:38:30.725  3885  3885 F DEBUG   : ABI: 'x86_64'
+03-09 07:38:30.725  3885  3885 F DEBUG   : Timestamp: 2026-03-09 07:38:27.954631303+0530
+03-09 07:38:30.725  3885  3885 F DEBUG   : Process uptime: 0s
+03-09 07:38:30.725  3885  3885 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:38:30.725  3885  3885 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:38:30.725  3885  3885 F DEBUG   : pid: 3441, tid: 3534, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:38:30.725  3885  3885 F DEBUG   : uid: 1002
+03-09 07:38:30.725  3885  3885 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:38:30.725  3885  3885 F DEBUG   :     rax fffffffffffffffc  rbx 000077105400d0d0  rcx 00007711c855d6b7  rdx 0000770ea43ea6d0
+03-09 07:38:30.725  3885  3885 F DEBUG   :     r8  0000770f84017bf0  r9  0000000000000000  r10 0000770ea43ea7f0  r11 0000000000000206
+03-09 07:38:30.725  3885  3885 F DEBUG   :     r12 000000005f4e5446  r13 000077105400d178  r14 0000000000000000  r15 2000000000000000
+03-09 07:38:30.725  3885  3885 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:38:30.725  3885  3885 F DEBUG   :     rbp 0000770ea43ea520  rsp 0000770ea43ea448  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:38:30.725  3885  3885 F DEBUG   : 17 total frames
+03-09 07:38:30.725  3885  3885 F DEBUG   : backtrace:
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #04 pc 000000000008647f  /system/lib64/libbinder.so (android::BpBinder::getInterfaceDescriptor() const+303) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #05 pc 000000000001bef0  /system/lib64/libbinder_ndk.so (AIBinder_associateClass+80) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #06 pc 0000000000ca14a2  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::IBluetoothHci::fromBinder(ndk::SpAIBinder const&)+50) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #07 pc 0000000000c9f740  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciBackend::CreateAidl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+1360) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #08 pc 0000000000c9e012  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+402) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #09 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #10 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #11 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #12 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #13 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #14 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #15 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:30.726  3885  3885 F DEBUG   :       #16 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: Process: com.colorart, PID: 4279
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	existing SO sources: 
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64 flags = 0]]
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/base.apk!/lib/x86_64]]
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	Native lib dir: /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:38:34.677  4279  4279 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:38:35.600  4220  4257 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 4257 (droid.bluetooth), pid 4220 (droid.bluetooth)
+03-09 07:38:36.987  4362  4362 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:38:36.987  4362  4362 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:38:36.987  4362  4362 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:38:36.987  4362  4362 F DEBUG   : Revision: '0'
+03-09 07:38:36.987  4362  4362 F DEBUG   : ABI: 'x86_64'
+03-09 07:38:36.987  4362  4362 F DEBUG   : Timestamp: 2026-03-09 07:38:35.683718397+0530
+03-09 07:38:36.987  4362  4362 F DEBUG   : Process uptime: 0s
+03-09 07:38:36.987  4362  4362 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:38:36.987  4362  4362 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:38:36.987  4362  4362 F DEBUG   : pid: 4220, tid: 4257, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:38:36.987  4362  4362 F DEBUG   : uid: 1002
+03-09 07:38:36.987  4362  4362 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:38:36.987  4362  4362 F DEBUG   :     rax fffffffffffffffc  rbx 000077105400d0d0  rcx 00007711c855d6b7  rdx 0000770ea55236d0
+03-09 07:38:36.987  4362  4362 F DEBUG   :     r8  0000770f84017bf0  r9  0000000000000000  r10 0000770ea55237f0  r11 0000000000000206
+03-09 07:38:36.987  4362  4362 F DEBUG   :     r12 000000005f4e5446  r13 000077105400d178  r14 0000000000000000  r15 2000000000000000
+03-09 07:38:36.987  4362  4362 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:38:36.987  4362  4362 F DEBUG   :     rbp 0000770ea5523520  rsp 0000770ea5523448  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:38:36.987  4362  4362 F DEBUG   : 17 total frames
+03-09 07:38:36.987  4362  4362 F DEBUG   : backtrace:
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #04 pc 000000000008647f  /system/lib64/libbinder.so (android::BpBinder::getInterfaceDescriptor() const+303) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #05 pc 000000000001bef0  /system/lib64/libbinder_ndk.so (AIBinder_associateClass+80) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #06 pc 0000000000ca14a2  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::IBluetoothHci::fromBinder(ndk::SpAIBinder const&)+50) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #07 pc 0000000000c9f740  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciBackend::CreateAidl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+1360) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #08 pc 0000000000c9e012  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+402) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #09 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #10 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #11 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #12 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #13 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #14 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #15 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:36.987  4362  4362 F DEBUG   :       #16 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: Process: com.colorart, PID: 4384
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	existing SO sources: 
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64 flags = 0]]
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/base.apk!/lib/x86_64]]
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	Native lib dir: /data/app/~~mWjhBwUSaTMiRIodyiAT2w==/com.colorart-hRXdLWfIXpnxFoxlk5le2A==/lib/arm64
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:38:37.233  4384  4384 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:38:56.375  4716  4740 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 4740 (droid.bluetooth), pid 4716 (droid.bluetooth)
+03-09 07:38:57.034  4752  4752 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:38:57.034  4752  4752 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:38:57.034  4752  4752 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:38:57.034  4752  4752 F DEBUG   : Revision: '0'
+03-09 07:38:57.034  4752  4752 F DEBUG   : ABI: 'x86_64'
+03-09 07:38:57.034  4752  4752 F DEBUG   : Timestamp: 2026-03-09 07:38:56.436570749+0530
+03-09 07:38:57.034  4752  4752 F DEBUG   : Process uptime: 0s
+03-09 07:38:57.034  4752  4752 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:38:57.034  4752  4752 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:38:57.034  4752  4752 F DEBUG   : pid: 4716, tid: 4740, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:38:57.034  4752  4752 F DEBUG   : uid: 1002
+03-09 07:38:57.034  4752  4752 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:38:57.034  4752  4752 F DEBUG   :     rax fffffffffffffffc  rbx 000077105400d0d0  rcx 00007711c855d6b7  rdx 0000770ea1c176d0
+03-09 07:38:57.034  4752  4752 F DEBUG   :     r8  0000770f84017bf0  r9  0000000000000000  r10 0000770ea1c177f0  r11 0000000000000206
+03-09 07:38:57.034  4752  4752 F DEBUG   :     r12 000000005f4e5446  r13 000077105400d178  r14 0000000000000000  r15 2000000000000000
+03-09 07:38:57.034  4752  4752 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:38:57.034  4752  4752 F DEBUG   :     rbp 0000770ea1c17520  rsp 0000770ea1c17448  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:38:57.034  4752  4752 F DEBUG   : 17 total frames
+03-09 07:38:57.034  4752  4752 F DEBUG   : backtrace:
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #04 pc 000000000008647f  /system/lib64/libbinder.so (android::BpBinder::getInterfaceDescriptor() const+303) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #05 pc 000000000001bef0  /system/lib64/libbinder_ndk.so (AIBinder_associateClass+80) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #06 pc 0000000000ca14a2  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::IBluetoothHci::fromBinder(ndk::SpAIBinder const&)+50) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #07 pc 0000000000c9f740  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciBackend::CreateAidl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+1360) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #08 pc 0000000000c9e012  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+402) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #09 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #10 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #11 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #12 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #13 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #14 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #15 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:38:57.034  4752  4752 F DEBUG   :       #16 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:20.515  4786  4814 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 4814 (droid.bluetooth), pid 4786 (droid.bluetooth)
+03-09 07:39:21.239  4822  4822 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:39:21.239  4822  4822 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:39:21.239  4822  4822 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:39:21.239  4822  4822 F DEBUG   : Revision: '0'
+03-09 07:39:21.239  4822  4822 F DEBUG   : ABI: 'x86_64'
+03-09 07:39:21.239  4822  4822 F DEBUG   : Timestamp: 2026-03-09 07:39:20.561544271+0530
+03-09 07:39:21.239  4822  4822 F DEBUG   : Process uptime: 0s
+03-09 07:39:21.239  4822  4822 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:39:21.239  4822  4822 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:39:21.239  4822  4822 F DEBUG   : pid: 4786, tid: 4814, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:39:21.239  4822  4822 F DEBUG   : uid: 1002
+03-09 07:39:21.239  4822  4822 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:39:21.239  4822  4822 F DEBUG   :     rax fffffffffffffffc  rbx 000077105400c9e0  rcx 00007711c855d6b7  rdx 0000770ea13826d0
+03-09 07:39:21.239  4822  4822 F DEBUG   :     r8  0000770f840155b0  r9  0000000000000000  r10 0000770ea13827f0  r11 0000000000000206
+03-09 07:39:21.239  4822  4822 F DEBUG   :     r12 000000005f4e5446  r13 000077105400ca88  r14 0000000000000000  r15 2000000000000000
+03-09 07:39:21.239  4822  4822 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:39:21.239  4822  4822 F DEBUG   :     rbp 0000770ea1382520  rsp 0000770ea1382448  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:39:21.239  4822  4822 F DEBUG   : 17 total frames
+03-09 07:39:21.239  4822  4822 F DEBUG   : backtrace:
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #04 pc 000000000008647f  /system/lib64/libbinder.so (android::BpBinder::getInterfaceDescriptor() const+303) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #05 pc 000000000001bef0  /system/lib64/libbinder_ndk.so (AIBinder_associateClass+80) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #06 pc 0000000000ca14a2  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::IBluetoothHci::fromBinder(ndk::SpAIBinder const&)+50) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #07 pc 0000000000c9f740  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciBackend::CreateAidl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+1360) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #08 pc 0000000000c9e012  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+402) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #09 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #10 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #11 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #12 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #13 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #14 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #15 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:21.239  4822  4822 F DEBUG   :       #16 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:48.435  4884  4910 F libc    : Fatal signal 6 (SIGABRT), code -6 (SI_TKILL) in tid 4910 (droid.bluetooth), pid 4884 (droid.bluetooth)
+03-09 07:39:49.201  4924  4924 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-09 07:39:49.203  4924  4924 F DEBUG   : Build fingerprint: 'google/sdk_gphone64_x86_64/emu64xa:16/BE4B.251210.005/14574095:user/release-keys'
+03-09 07:39:49.203  4924  4924 F DEBUG   : Kernel Release: '6.12.38-android16-5-gbb9513914902-ab13996879'
+03-09 07:39:49.203  4924  4924 F DEBUG   : Revision: '0'
+03-09 07:39:49.203  4924  4924 F DEBUG   : ABI: 'x86_64'
+03-09 07:39:49.203  4924  4924 F DEBUG   : Timestamp: 2026-03-09 07:39:48.508156925+0530
+03-09 07:39:49.203  4924  4924 F DEBUG   : Process uptime: 0s
+03-09 07:39:49.203  4924  4924 F DEBUG   : Executable: /system/bin/app_process64
+03-09 07:39:49.203  4924  4924 F DEBUG   : Cmdline: com.google.android.bluetooth
+03-09 07:39:49.203  4924  4924 F DEBUG   : pid: 4884, tid: 4910, name: droid.bluetooth  >>> com.google.android.bluetooth <<<
+03-09 07:39:49.203  4924  4924 F DEBUG   : uid: 1002
+03-09 07:39:49.203  4924  4924 F DEBUG   : signal 6 (SIGABRT), code -6 (SI_TKILL), fault addr --------
+03-09 07:39:49.204  4924  4924 F DEBUG   :     rax fffffffffffffffc  rbx 000077105400c9e0  rcx 00007711c855d6b7  rdx 0000770ea1a5a6d0
+03-09 07:39:49.204  4924  4924 F DEBUG   :     r8  0000770f84016d50  r9  0000000000000000  r10 0000770ea1a5a7f0  r11 0000000000000206
+03-09 07:39:49.204  4924  4924 F DEBUG   :     r12 000000005f4e5446  r13 000077105400ca88  r14 0000000000000000  r15 2000000000000000
+03-09 07:39:49.204  4924  4924 F DEBUG   :     rdi 0000000000000048  rsi 00000000c0306201
+03-09 07:39:49.204  4924  4924 F DEBUG   :     rbp 0000770ea1a5a520  rsp 0000770ea1a5a448  rip 00007711c855d6b7  err 0000000000000004
+03-09 07:39:49.204  4924  4924 F DEBUG   : 17 total frames
+03-09 07:39:49.204  4924  4924 F DEBUG   : backtrace:
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #00 pc 00000000000df6b7  /apex/com.android.runtime/lib64/bionic/libc.so (__ioctl+7) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #01 pc 000000000007bf85  /apex/com.android.runtime/lib64/bionic/libc.so (ioctl+181) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #02 pc 000000000006ed81  /system/lib64/libbinder.so (android::IPCThreadState::transact(int, unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+1825) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #03 pc 00000000000871ac  /system/lib64/libbinder.so (android::BpBinder::transact(unsigned int, android::Parcel const&, android::Parcel*, unsigned int)+268) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #04 pc 000000000008647f  /system/lib64/libbinder.so (android::BpBinder::getInterfaceDescriptor() const+303) (BuildId: cfb3564ab133432f0b6bb93624892b78)
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #05 pc 000000000001bef0  /system/lib64/libbinder_ndk.so (AIBinder_associateClass+80) (BuildId: 97bf9901bd19365d7077d8d5f27202ae)
+03-09 07:39:49.204  4924  4924 F DEBUG   :       #06 pc 0000000000ca14a2  /apex/com.android.bt/lib64/libbluetooth_jni.so (aidl::android::hardware::bluetooth::IBluetoothHci::fromBinder(ndk::SpAIBinder const&)+50) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #07 pc 0000000000c9f740  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciBackend::CreateAidl(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+1360) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #08 pc 0000000000c9e012  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::hal::HciHalImpl::HciHalImpl(bluetooth::os::Handler*, bluetooth::hal::LinkClocker&, bluetooth::hal::SnoopLogger*)+402) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #09 pc 000000000039a06b  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::shim::Stack::handle_start_up(std::__1::promise<void>)+139) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #10 pc 000000000039b73a  /apex/com.android.bt/lib64/libbluetooth_jni.so (base::internal::Invoker<base::internal::BindState<void (bluetooth::shim::Stack::*)(std::__1::promise<void>), base::internal::UnretainedWrapper<bluetooth::shim::Stack>, std::__1::promise<void>>, void ()>::RunOnce(base::internal::BindStateBase*)+74) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #11 pc 0000000000a64630  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Handler::handle_next_event()+352) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #12 pc 0000000000a662bb  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Reactor::Run()+1051) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #13 pc 0000000000a66ff9  /apex/com.android.bt/lib64/libbluetooth_jni.so (bluetooth::os::Thread::run(bluetooth::os::Thread::Priority)+329) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #14 pc 0000000000a6719c  /apex/com.android.bt/lib64/libbluetooth_jni.so (void* std::__1::__thread_proxy[abi:nn210000]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct>>, void (bluetooth::os::Thread::*)(bluetooth::os::Thread::Priority), bluetooth::os::Thread*, bluetooth::os::Thread::Priority>>(void*)+60) (BuildId: 126c065423e2ff924675fff9c1d10f0f)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #15 pc 0000000000080daf  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:49.205  4924  4924 F DEBUG   :       #16 pc 00000000000734fd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+61) (BuildId: 3f8afd2a8485f380e843af6d787a9af4)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: Process: com.colorart, PID: 4995
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	existing SO sources: 
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/lib/arm64 flags = 0]]
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/base.apk!/lib/x86_64]]
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	Native lib dir: /data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/lib/arm64
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:39:50.959  4995  4995 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: Process: com.colorart, PID: 5018
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	existing SO sources: 
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/lib/arm64 flags = 0]]
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/base.apk!/lib/x86_64]]
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	Native lib dir: /data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/lib/arm64
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:39:55.359  5018  5018 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: FATAL EXCEPTION: main
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: Process: com.colorart, PID: 5094
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libreactnative.so
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	existing SO sources: 
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/lib/arm64 flags = 0]]
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/base.apk!/lib/x86_64]]
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	Native lib dir: /data/app/~~ndqxMMl34bXZVML2EKWURA==/com.colorart-dsqfk5RJXu9fU9GxZHt6eA==/lib/arm64
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.override(ReactNativeFeatureFlagsCxxAccessor.kt:875)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.override(ReactNativeFeatureFlags.kt:558)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:101)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load(DefaultNewArchitectureEntryPoint.kt:43)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.facebook.react.ReactNativeApplicationEntryPoint.loadReactNative(ReactNativeApplicationEntryPoint.java:31)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.colorart.MainApplication.onCreate(MainApplication.kt:25)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1396)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:8139)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2690)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:132)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9287)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:566)
+03-09 07:41:43.959  5094  5094 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: FATAL EXCEPTION: mqt_v_js
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: Process: com.colorart, PID: 5511
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libgesturehandler.so
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	existing SO sources: 
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64 flags = 0]]
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/base.apk!/lib/x86_64]]
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	Native lib dir: /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.install$lambda$1(RNGestureHandlerModule.kt:123)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.$r8$lambda$ANBrPBw65woKAIWIZsQbG0RXN0s(Unknown Source:0)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1070)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadHandler.dispatchMessage(MessageQueueThreadHandler.kt:21)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.startNewBackgroundThread$lambda$0(MessageQueueThreadImpl.kt:152)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.$r8$lambda$YYXYCFexeoKtAeDpeNYkxZZlpbA(Unknown Source:0)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:46:31.855  5511  5564 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1563)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: FATAL EXCEPTION: mqt_v_js
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: Process: com.colorart, PID: 5613
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libgesturehandler.so
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	existing SO sources: 
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64 flags = 0]]
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/base.apk!/lib/x86_64]]
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	Native lib dir: /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.install$lambda$1(RNGestureHandlerModule.kt:123)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.$r8$lambda$ANBrPBw65woKAIWIZsQbG0RXN0s(Unknown Source:0)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1070)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadHandler.dispatchMessage(MessageQueueThreadHandler.kt:21)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.startNewBackgroundThread$lambda$0(MessageQueueThreadImpl.kt:152)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.$r8$lambda$YYXYCFexeoKtAeDpeNYkxZZlpbA(Unknown Source:0)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:46:39.160  5613  5651 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1563)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: FATAL EXCEPTION: mqt_v_js
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: Process: com.colorart, PID: 5677
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libgesturehandler.so
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	existing SO sources: 
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64 flags = 0]]
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/base.apk!/lib/x86_64]]
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	Native lib dir: /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.install$lambda$1(RNGestureHandlerModule.kt:123)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.$r8$lambda$ANBrPBw65woKAIWIZsQbG0RXN0s(Unknown Source:0)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1070)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadHandler.dispatchMessage(MessageQueueThreadHandler.kt:21)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.startNewBackgroundThread$lambda$0(MessageQueueThreadImpl.kt:152)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.$r8$lambda$YYXYCFexeoKtAeDpeNYkxZZlpbA(Unknown Source:0)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:46:57.955  5677  5718 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1563)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: FATAL EXCEPTION: mqt_v_js
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: Process: com.colorart, PID: 5734
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libgesturehandler.so
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	existing SO sources: 
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64 flags = 0]]
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/base.apk!/lib/x86_64]]
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	Native lib dir: /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.install$lambda$1(RNGestureHandlerModule.kt:123)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.$r8$lambda$ANBrPBw65woKAIWIZsQbG0RXN0s(Unknown Source:0)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1070)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadHandler.dispatchMessage(MessageQueueThreadHandler.kt:21)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.startNewBackgroundThread$lambda$0(MessageQueueThreadImpl.kt:152)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.$r8$lambda$YYXYCFexeoKtAeDpeNYkxZZlpbA(Unknown Source:0)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:47:06.566  5734  5769 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1563)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: FATAL EXCEPTION: mqt_v_js
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: Process: com.colorart, PID: 5797
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: com.facebook.soloader.SoLoaderDSONotFoundError: couldn't find DSO to load: libgesturehandler.so
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	existing SO sources: 
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 		SoSource 0: ApplicationSoSource[DirectorySoSource[root = /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64 flags = 0]]
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 		SoSource 1: DirectApkSoSource[root = [/data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/base.apk!/lib/x86_64]]
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 		SoSource 2: DirectorySoSource[root = /system/lib64 flags = 3]
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 		SoSource 3: DirectorySoSource[root = /vendor/lib64 flags = 3]
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	Native lib dir: /data/app/~~u4-0yt7dyojwWR6AmOcwbQ==/com.colorart-ku2bHLxSi4ISJ0nmbdtnFw==/lib/x86_64
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.doLoadLibraryBySoName(SoLoader.java:1216)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoNameImpl(SoLoader.java:1078)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryBySoName(SoLoader.java:943)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibraryOnAndroid(SoLoader.java:859)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:842)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.install$lambda$1(RNGestureHandlerModule.kt:123)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule.$r8$lambda$ANBrPBw65woKAIWIZsQbG0RXN0s(Unknown Source:0)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.swmansion.gesturehandler.react.RNGestureHandlerModule$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1070)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadHandler.dispatchMessage(MessageQueueThreadHandler.kt:21)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at android.os.Looper.dispatchMessage(Looper.java:333)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:263)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:367)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.startNewBackgroundThread$lambda$0(MessageQueueThreadImpl.kt:152)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion.$r8$lambda$YYXYCFexeoKtAeDpeNYkxZZlpbA(Unknown Source:0)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at com.facebook.react.bridge.queue.MessageQueueThreadImpl$Companion$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-09 07:47:27.224  5797  5833 E AndroidRuntime: 	at java.lang.Thread.run(Thread.java:1563)

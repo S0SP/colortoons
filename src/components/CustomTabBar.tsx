@@ -1,33 +1,29 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Platform } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
-import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-
-const { width } = Dimensions.get('window');
+import { useUserStore } from '../store/useUserStore';
 
 export const CustomTabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
+    // Get daily reward status for badge
+    const canClaimDailyReward = useUserStore((s) => s.canClaimDailyReward());
+
     return (
         <View style={styles.dockWrapper}>
-            {/* Blur Background */}
+            {/* Dark Frosted Glassmorphism */}
             <BlurView
                 style={styles.dockBlur}
-                blurType="light"
+                blurType="dark"
                 blurAmount={20}
-                reducedTransparencyFallbackColor="white"
+                reducedTransparencyFallbackColor="#121212"
             />
+            {/* 1px border overlay for Matte Dark Studio */}
+            <View style={styles.dockBorder} />
 
             <View style={styles.dockContent}>
                 {state.routes.map((route, index) => {
                     const { options } = descriptors[route.key];
-                    const label =
-                        options.tabBarLabel !== undefined
-                            ? options.tabBarLabel
-                            : options.title !== undefined
-                                ? options.title
-                                : route.name;
-
                     const isFocused = state.index === index;
 
                     const onPress = () => {
@@ -42,40 +38,16 @@ export const CustomTabBar = ({ state, descriptors, navigation }: BottomTabBarPro
                         }
                     };
 
-                    // Define icons based on route name matching RootNavigator
+                    // Chunky solid icons for active state, clean outlines for inactive
                     let iconName = 'alert-circle';
                     if (route.name === 'Home') iconName = isFocused ? 'home' : 'home-outline';
                     else if (route.name === 'Gallery') iconName = isFocused ? 'image-multiple' : 'image-multiple-outline';
-                    else if (route.name === 'Magic') iconName = isFocused ? 'wand' : 'wand'; // MaterialCommunityIcons doesn't always have outline for specific ones
+                    else if (route.name === 'Magic') iconName = isFocused ? 'auto-fix' : 'auto-fix';
                     else if (route.name === 'Profile') iconName = isFocused ? 'account' : 'account-outline';
 
-                    // Magic/Wand icon tweaks
-                    if (route.name === 'Magic' && !isFocused) iconName = 'wand';
+                    const showBadge = route.name === 'Home' && canClaimDailyReward;
+                    const iconColor = isFocused ? '#6366F1' : '#8E8E93';
 
-                    // Render Active Tab with Gradient
-                    if (isFocused) {
-                        return (
-                            <TouchableOpacity
-                                key={index}
-                                onPress={onPress}
-                                style={styles.dockItem}
-                                activeOpacity={0.8}
-                            >
-                                <LinearGradient
-                                    colors={['#A855F7', '#6366F1']} // Purple to Blue Gradient
-                                    start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
-                                    style={styles.activeTabBackground}
-                                >
-                                    <Icon name={iconName} size={24} color="#FFFFFF" />
-                                    <Text style={[styles.dockLabel, { color: 'white', fontWeight: 'bold' }]}>
-                                        {label as string}
-                                    </Text>
-                                </LinearGradient>
-                            </TouchableOpacity>
-                        );
-                    }
-
-                    // Render Inactive Tab
                     return (
                         <TouchableOpacity
                             key={index}
@@ -83,10 +55,11 @@ export const CustomTabBar = ({ state, descriptors, navigation }: BottomTabBarPro
                             style={styles.dockItem}
                             activeOpacity={0.8}
                         >
-                            <Icon name={iconName} size={24} color="#64748B" />
-                            <Text style={styles.dockLabel}>
-                                {label as string}
-                            </Text>
+                            <View style={styles.iconContainer}>
+                                <Icon name={iconName} size={28} color={iconColor} />
+                                {showBadge && <View style={styles.badge} />}
+                            </View>
+                            {isFocused && <View style={styles.activeDot} />}
                         </TouchableOpacity>
                     );
                 })}
@@ -99,52 +72,56 @@ const styles = StyleSheet.create({
     dockWrapper: {
         position: 'absolute',
         bottom: 30,
-        width: '90%',
+        width: '85%',
         alignSelf: 'center',
-        height: 75,
-        borderRadius: 40,
+        height: 64,
+        borderRadius: 32,
         overflow: 'hidden',
-        // Shadow for the floating effect
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.15,
-        shadowRadius: 20,
-        elevation: 10,
-        backgroundColor: 'rgba(255,255,255,0.7)', // Fallback
+        backgroundColor: 'rgba(20,20,20,0.6)',
     },
     dockBlur: {
         ...StyleSheet.absoluteFillObject,
+    },
+    dockBorder: {
+        ...StyleSheet.absoluteFillObject,
+        borderRadius: 32,
+        borderWidth: 1,
+        borderColor: 'rgba(255,255,255,0.1)',
     },
     dockContent: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        paddingHorizontal: 10,
+        paddingHorizontal: 16,
     },
     dockItem: {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100%',
         flex: 1,
+        position: 'relative',
     },
-    activeTabBackground: {
-        width: 60,
-        height: 60,
-        borderRadius: 22, // Squircle shape
-        alignItems: 'center',
-        justifyContent: 'center',
-        // Slight shadow inside the dock?
-        elevation: 5,
-        shadowColor: "#A855F7",
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
+    iconContainer: {
+        position: 'relative',
     },
-    dockLabel: {
-        fontSize: 10,
-        marginTop: 4,
-        color: '#64748B',
-        fontWeight: '500',
+    activeDot: {
+        position: 'absolute',
+        bottom: 6,
+        width: 4,
+        height: 4,
+        borderRadius: 2,
+        backgroundColor: '#6366F1',
+    },
+    badge: {
+        position: 'absolute',
+        top: -4,
+        right: -6,
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: '#EF4444',
+        borderWidth: 1,
+        borderColor: '#121212',
     },
 });
