@@ -86,9 +86,9 @@ export const HomeScreen = () => {
     return (
         <SafeAreaView style={styles.container} edges={['top']}>
             <View style={styles.header}>
-                <View style={styles.avatarContainer}>
+                <TouchableOpacity style={styles.avatarContainer} onPress={() => (navigation as any).navigate('Profile')}>
                     <Image source={require('../assets/fox_avatar.png')} style={styles.avatar as any} />
-                </View>
+                </TouchableOpacity>
                 <View style={styles.statsContainer}>
                     {/* Status Pill: Coins */}
                     <View style={[styles.statPill, { borderColor: '#F59E0B' }]}>

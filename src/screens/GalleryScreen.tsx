@@ -127,9 +127,9 @@ export const GalleryScreen = ({ navigation }: any) => {
                 title: item.title,
                 id: item.id,
                 options: {
-                    numColors: item.difficulty === 'easy' ? 16 : item.difficulty === 'medium' ? 32 : 64,
-                    targetRegions: item.difficulty === 'easy' ? 150 : item.difficulty === 'medium' ? 400 : 800,
-                    minRegionArea: item.difficulty === 'easy' ? 80 : item.difficulty === 'medium' ? 40 : 20,
+                    numColors: item.difficulty === 'easy' ? 16 : item.difficulty === 'medium' ? 24 : 32,
+                    targetRegions: item.difficulty === 'easy' ? 150 : item.difficulty === 'medium' ? 250 : 400,
+                    minRegionArea: item.difficulty === 'easy' ? 80 : item.difficulty === 'medium' ? 60 : 40,
                 },
             });
         } catch (error) {

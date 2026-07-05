@@ -8,6 +8,12 @@ import { useUserStore } from '../store/useUserStore';
 import { usePaintingStore } from '../store/usePaintingStore';
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from '../services/supabase';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+    // TODO: Replace with your actual Web Client ID from Google Cloud Console
+    webClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
+});
 
 export const ProfileScreen = () => {
     const { coins, gamesCompleted, streak, loadFromCloud } = useUserStore();
@@ -20,6 +26,8 @@ export const ProfileScreen = () => {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isSignUp, setIsSignUp] = useState(false);
+    const [settingsModalVisible, setSettingsModalVisible] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
 
     useEffect(() => {
         // Check active session on mount
@@ -67,7 +75,46 @@ export const ProfileScreen = () => {
     const handleSignOut = async () => {
         setIsLoading(true);
         await supabase.auth.signOut();
+        try {
+            await GoogleSignin.signOut();
+        } catch (error) {
+            console.log('Google signOut error', error);
+        }
         setIsLoading(false);
+    };
+
+    const handleGoogleSignIn = async () => {
+        setIsLoading(true);
+        try {
+            await GoogleSignin.hasPlayServices();
+            const userInfo = await GoogleSignin.signIn();
+            if (userInfo.data?.idToken) {
+                const { data, error } = await supabase.auth.signInWithIdToken({
+                    provider: 'google',
+                    token: userInfo.data.idToken,
+                });
+                if (error) throw error;
+                await loadFromCloud();
+                await loadPaintingsFromCloud();
+                setAuthModalVisible(false);
+                Alert.alert('Success', 'Signed in with Google!');
+            } else {
+                throw new Error('no ID token present!');
+            }
+        } catch (error: any) {
+            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+                // user cancelled the login flow
+            } else if (error.code === statusCodes.IN_PROGRESS) {
+                // operation (e.g. sign in) is in progress already
+            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+                // play services not available or outdated
+                Alert.alert('Error', 'Play services not available');
+            } else {
+                Alert.alert('Google Sign-In Error', error.message);
+            }
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -75,7 +122,7 @@ export const ProfileScreen = () => {
             <ScrollView contentContainerStyle={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.headerTitle}>Profile</Text>
-                    <TouchableOpacity style={styles.settingsBtn}>
+                    <TouchableOpacity style={styles.settingsBtn} onPress={() => setSettingsModalVisible(true)}>
                         <Icon name="cog-outline" size={24} color="#A3A3A3" />
                     </TouchableOpacity>
                 </View>
@@ -213,6 +260,23 @@ export const ProfileScreen = () => {
                             )}
                         </TouchableOpacity>
 
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 20 }}>
+                            <View style={{ flex: 1, height: 1, backgroundColor: '#262626' }} />
+                            <Text style={{ color: '#737373', marginHorizontal: 10 }}>OR</Text>
+                            <View style={{ flex: 1, height: 1, backgroundColor: '#262626' }} />
+                        </View>
+
+                        <TouchableOpacity 
+                            style={[styles.primaryBtn, { backgroundColor: '#4285F4', marginTop: 0 }]} 
+                            onPress={handleGoogleSignIn}
+                            disabled={isLoading}
+                        >
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Icon name="google" size={20} color="#FFF" style={{ marginRight: 8 }} />
+                                <Text style={[styles.primaryBtnText, { color: '#FFF' }]}>Continue with Google</Text>
+                            </View>
+                        </TouchableOpacity>
+
                         <TouchableOpacity 
                             style={styles.switchModeBtn}
                             onPress={() => setIsSignUp(!isSignUp)}
@@ -223,6 +287,68 @@ export const ProfileScreen = () => {
                         </TouchableOpacity>
                     </View>
                 </KeyboardAvoidingView>
+            </Modal>
+
+            {/* Settings Modal */}
+            <Modal
+                visible={settingsModalVisible}
+                animationType="slide"
+                transparent={true}
+                onRequestClose={() => setSettingsModalVisible(false)}
+            >
+                <View style={styles.modalOverlay}>
+                    <View style={styles.modalContent}>
+                        <View style={styles.modalHeader}>
+                            <Text style={styles.modalTitle}>Settings</Text>
+                            <TouchableOpacity onPress={() => setSettingsModalVisible(false)}>
+                                <Icon name="close" size={24} color="#A3A3A3" />
+                            </TouchableOpacity>
+                        </View>
+                        
+                        <View style={{ marginTop: 16 }}>
+                            <TouchableOpacity style={styles.actionRow} onPress={() => {
+                                Alert.alert('Sound', 'Sound toggle coming soon!');
+                            }}>
+                                <View style={styles.actionIconBg}>
+                                    <Icon name="volume-high" size={22} color="#E5E5E5" />
+                                </View>
+                                <Text style={styles.actionText}>Sound & Music</Text>
+                                <Icon name="chevron-right" size={24} color="#525252" />
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={styles.actionRow} onPress={() => {
+                                Alert.alert('About', 'ColorToons v1.0.0');
+                            }}>
+                                <View style={styles.actionIconBg}>
+                                    <Icon name="information-outline" size={22} color="#E5E5E5" />
+                                </View>
+                                <Text style={styles.actionText}>About ColorToons</Text>
+                                <Icon name="chevron-right" size={24} color="#525252" />
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={[styles.actionRow, { borderColor: '#EF4444' }]} onPress={() => {
+                                Alert.alert(
+                                    'Reset Progress', 
+                                    'Are you sure you want to reset all your coins, energy and streak? This cannot be undone.', 
+                                    [
+                                        { text: 'Cancel', style: 'cancel' },
+                                        { text: 'Reset', style: 'destructive', onPress: () => {
+                                            useUserStore.getState().coins = 50;
+                                            useUserStore.getState().streak = 1;
+                                            Alert.alert('Reset', 'Progress has been reset.');
+                                        }}
+                                    ]
+                                );
+                            }}>
+                                <View style={[styles.actionIconBg, { backgroundColor: 'rgba(239, 68, 68, 0.2)' }]}>
+                                    <Icon name="delete-outline" size={22} color="#EF4444" />
+                                </View>
+                                <Text style={[styles.actionText, { color: '#EF4444' }]}>Reset Progress</Text>
+                                <Icon name="chevron-right" size={24} color="#525252" />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
             </Modal>
         </SafeAreaView>
     );

@@ -46,6 +46,7 @@ export const SplashScreen = () => {
     }, []);
 
     const navigateToNext = () => {
+        const hasSeenOnboarding = useUserStore.getState().hasSeenOnboarding;
         if (hasSeenOnboarding) {
             navigation.reset({ index: 0, routes: [{ name: 'MainTabs' as never }] });
         } else {

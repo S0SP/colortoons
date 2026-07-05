@@ -173,13 +173,14 @@ export const CreationScreen = () => {
                     <Text style={styles.headerTitle}>Create Magic</Text>
                 </View>
                 
-                {/* Fox Peeking - Rendered First but Z-indexed in styles */}
-                <Image
-                    source={require('../assets/fox_peeking.png')}
-                    style={styles.foxPeeking as any}
-                    resizeMode="contain"
-                />
-                
+                {/* Fox Peeking */}
+                <View style={{ width: '100%', alignItems: 'flex-end', marginBottom: -25, zIndex: 10 }}>
+                    <Image
+                        source={require('../assets/fox_peeking.png')}
+                        style={{ width: 120, height: 120, marginRight: 20 }}
+                        resizeMode="contain"
+                    />
+                </View>
                 <View style={styles.inputContainer}>
                     {selectedImageUri ? (
                         <View style={styles.selectedImageWrapper}>
